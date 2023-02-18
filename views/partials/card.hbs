@@ -1,12 +1,12 @@
 <div class="card" style="width: 18rem;">
-    <div>
-      <img src="{{ product.image }}" class="card-img-top" alt="{{ product.productName }}">
-    </div>
-    <div>
-      <h4 class="mb-1"><a href="/products/{{product.id}}/detail"> {{product.productName}} </a></h4>
-      <p class="card-text">{{ product.description }}</p>
-      <p class="card-text">Price: ${{ product.pattern.price }}</p>
-    </div>
+  <div>
+    <img src="{{ product.image }}" class="card-img-top" alt="{{ product.productName }}">
+  </div>
+  <div>
+    <h4 class="mb-1"><a href="/products/{{product.id}}/detail"> {{product.productName}} </a></h4>
+    <p class="card-text">{{ product.description }}</p>
+    <p class="card-text">Price: ${{ product.pattern.price }}</p>
+  </div>
   <div class="d-flex align-items-center" style="margin-left: 60px;">
     {{#isOwner currentUser=currentUser product=product}}
       <form class="m-0" action="/products/{{product.id}}/delete" method="POST">
@@ -15,13 +15,17 @@
         </button>
       </form>
     {{/isOwner}}
-    <button class="like-btn btn text-primary" type="button" value="{{product.id}}">
-      <span>{{product.likes.length}}</span>
-      {{#hasLike currentUser=currentUser product=product}}
-        <i class="bi bi-heart-fill"></i>
-      {{else}}
-        <i class="bi bi-heart"></i>
-      {{/hasLike}}
-    </button>
+    {{#if currentUser}}
+      <button class="like-btn btn text-primary" type="button" value="{{product.id}}">
+        <span>{{product.likes.length}}</span>
+        {{#hasLike currentUser=currentUser product=product}}
+          <i class="bi bi-heart-fill"></i>
+        {{else}}
+          <i class="bi bi-heart"></i>
+        {{/hasLike}}
+      </button>
+    {{else}}
+      <span>{{product.likes.length}}<i class="bi bi-heart-fill"></i></span>
+    {{/if}}
   </div>
 </div>
