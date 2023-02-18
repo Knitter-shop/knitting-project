@@ -3,7 +3,7 @@
       <img src="{{ product.image }}" class="card-img-top" alt="{{ product.productName }}">
     </div>
     <div>
-      <h4 class="mb-1">{{ product.productName }}</h4>
+      <h4 class="mb-1"><a href="/products/{{product.id}}/detail"> {{product.productName}} </a></h4>
       <p class="card-text">{{ product.description }}</p>
       <p class="card-text">Price: ${{ product.pattern.price }}</p>
     </div>

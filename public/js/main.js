@@ -5,6 +5,7 @@ window.onload = () => {
       const productId = likeBtn.value;
   
       const iconNode = likeBtn.querySelector('.bi')
+      const likeCount = likeBtn.querySelector('span')
   
       likeBtn.onclick = () => {
         axios.post(`/products/${productId}/like`)
@@ -12,13 +13,13 @@ window.onload = () => {
             if (response.status === 201) {
               iconNode.classList.remove('bi-heart');
               iconNode.classList.add('bi-heart-fill');
+              likeCount.textContent = Number(likeCount.textContent) + 1
             } else if (response.status === 204) {
               iconNode.classList.add('bi-heart');
               iconNode.classList.remove('bi-heart-fill');
+              likeCount.textContent = Number(likeCount.textContent) - 1
             }
           })
-
-          /// hay que sumar +1 y eliminar
           .catch((err) => {
             console.error(err)
           })

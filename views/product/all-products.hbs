@@ -6,20 +6,14 @@
 
 <a href="/products/new-product"> Crea un proyecto </a>
 
-<ul>
+<div class="container">
+    
   {{#each products as |product|}}
-    <li>
-      <a href="/products/{{product.id}}/detail"> {{product.productName}} </a>
-      <form action="/products/{{product.id}}/delete" method="POST">
-        <button class="btn btn-danger" type="submit">
-          Delete
-        </button>
-      </form>
-    </li>
 
     {{> card product=product currentUser=../currentUser}}
+
 
   {{else}}
     <p>No hay proyectos que mostrar</p>
   {{/each}}
-</ul>
+</div>
