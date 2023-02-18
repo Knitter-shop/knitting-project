@@ -65,13 +65,13 @@ router.get(
 router.post(
   "/products/new-product",
   authMiddleware.isAuthenticated,
- 
+  upload.single("image"),
   productController.doCreate
 );
 
 router.post(
   "/products/:id/delete",
-  authMiddleware.isAuthenticated,upload.single("image"),
+  authMiddleware.isAuthenticated,
   productController.delete
 );
 
