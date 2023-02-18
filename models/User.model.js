@@ -83,6 +83,13 @@ userSchema.virtual('likes', {
   justOne: false
 });
 
+userSchema.virtual('products', {
+  ref: 'Product',
+  foreignField: 'user',
+  localField: '_id',
+  justOne: false
+});
+
 const User = mongoose.model('User', userSchema);
 
 module.exports = User;
