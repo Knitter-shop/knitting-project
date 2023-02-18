@@ -1,0 +1,17 @@
+<h1 class="text-primary">Iniciar sesión</h1>
+
+<form action="/login" method="POST">
+  <div class="mb-3">
+    <label for="email" class="form-label">Email</label>
+    <input value="{{user.email}}" type="email" class="form-control {{#if errorsMessage}}is-invalid{{/if}}" id="email" name="email" aria-describedby="emailHelp" required>
+    <div class="invalid-feedback">
+      {{errorsMessage}}
+    </div>
+  </div>
+  <div class="mb-3">
+    <label for="password" class="form-label">Contraseña</label>
+    <input type="password" class="form-control {{#if errorsMessage}}is-invalid{{/if}}" id="password" name="password" required>
+  </div>
+  <button type="submit" class="btn btn-primary">Inica sesión</button>
+  <a href="/login/google" class="btn btn-outline-primary">Iniciar sesión con Google</a>
+</form>
