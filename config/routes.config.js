@@ -71,7 +71,7 @@ router.post(
 
 router.post(
   "/products/:id/delete",
-  authMiddleware.isAuthenticated,
+  authMiddleware.isAuthenticated,upload.single("image"),
   productController.delete
 );
 
@@ -82,6 +82,6 @@ router.post(
   userController.like
 );
 
-router.get("/products/:id/detail",  upload.single("image"), productController.detail);
+router.get("/products/:id/detail", productController.detail);
 
 module.exports = router;

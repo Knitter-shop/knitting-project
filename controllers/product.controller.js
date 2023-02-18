@@ -9,7 +9,7 @@ module.exports.doCreate = (req, res, next) => {
     const newProduct = {
         ...req.body,
         user:req.user.id,
-        
+        image: req.file.path,
     }
 
     Product.create(newProduct)
@@ -33,7 +33,7 @@ module.exports.delete = (req, res, next) => {
   }
 
 module.exports.detail = (req, res, next) => {
-    console.log("************", req.params.id)
+   
     Product.findById(req.params.id)
     .then(product => {
         res.render('product/product-detail', { product })
