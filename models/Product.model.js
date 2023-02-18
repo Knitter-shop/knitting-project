@@ -16,7 +16,8 @@ const productSchema = new mongoose.Schema(
         required : [true, 'Product description is required'],
       },
       image: {
-        type: String
+        type: String,
+        required : [true, 'File format is not supported'],
       },
       pattern: {
         type: {
