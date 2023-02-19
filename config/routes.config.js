@@ -75,6 +75,20 @@ router.post(
   productController.delete
 );
 
+//Edit products
+
+router.get(
+  "/product/:id/edit",
+  authMiddleware.isAuthenticated,
+  productController.edit
+);
+router.post(
+  "/product/:id/edit",
+  authMiddleware.isAuthenticated,
+  upload.single("image"),
+  productController.doEdit
+);
+
 //Likes
 router.post(
   "/products/:id/like",
