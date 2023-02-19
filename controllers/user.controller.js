@@ -1,6 +1,7 @@
 const Product = require('../models/Product.model')
 const Like = require('../models/Like.model')
 const User = require("../models/User.model");
+const Save = require("../models/Save.model")
 
 module.exports.profile = (req, res, next) => {
   res.render("user/profile");
@@ -12,6 +13,7 @@ module.exports.products = (req, res, next) => {
     Product.find()
       .populate('user')
       .populate('likes')
+      .populate('saves')
       .then(products => {
       res.render('product/all-products', { products });
     })
@@ -61,3 +63,29 @@ module.exports.products = (req, res, next) => {
       })
       .catch((err) => next(err));
   };
+
+  module.exports.save = (req, res, next) => {
+    const user = req.user.id;
+    const product = req.params.id;
+  
+    const save = {
+      user,
+      product
+    };
+
+    Save.findOne({ user, product })
+      .then(dbSave => {
+        if (dbSave) {
+          return Save.findByIdAndDelete(dbSave.id)
+            .then((createdSave) => {
+              res.status(204).json({ save: createdSave })
+            })
+        } else {
+          return Save.create(save)
+            .then(() => {
+              res.status(201).json({ ok: true })
+            })
+        }
+      })
+      .catch(err => next(err))
+  }

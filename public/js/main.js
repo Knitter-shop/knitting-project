@@ -25,5 +25,29 @@ window.onload = () => {
           })
       }
     })
+
+      const saveBtns = document.querySelectorAll('.save-btn')
+
+      saveBtns.forEach(saveBtn => {
+        
+          const productId = saveBtn.value;
+          const iconNode = saveBtn.querySelector('.bi')
+         
+          saveBtn.onclick = () => {
+            axios.post(`/products/${productId}/save`)
+              .then((response) => {
+                if (response.status === 201) {
+                  iconNode.classList.remove('bi-bookmark');
+                  iconNode.classList.add('bi-bookmark-fill');
+                } else if (response.status === 204) {
+                  iconNode.classList.add('bi-bookmark');
+                  iconNode.classList.remove('bi-bookmark-fill');
+                }
+              })
+              .catch((err) => {
+                console.error(err)
+              })
+          }
+      })
   }
   

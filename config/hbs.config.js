@@ -21,3 +21,12 @@ hbs.registerHelper('hasLike', function (options) {
     return options.inverse(this);
   }
 })
+
+hbs.registerHelper('hasSave', function (options) {
+  const { currentUser, product } = options.hash;
+  if (currentUser.saves.some(save => save.product.toString() === product.id)) {
+    return options.fn(this);
+  } else {
+    return options.inverse(this);
+  }
+})
