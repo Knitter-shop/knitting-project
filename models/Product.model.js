@@ -56,6 +56,12 @@ productSchema.virtual('likes', {
     justOne: false
 })
 
+productSchema.virtual('saves', {
+  ref: 'Save',
+  foreignField: 'product',
+  localField: '_id',
+  justOne: false
+})
 const Product = mongoose.model('Product', productSchema);
 
 module.exports = Product;
