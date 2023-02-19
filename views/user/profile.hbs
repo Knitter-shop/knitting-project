@@ -23,42 +23,36 @@ Hello {{currentUser.firstName}}
     <br>
     <br>
     <h1 id="guardados">Guardados</h1>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
+   
+      {{#each currentUser.saves as |productSaved|}}
+
+    {{> card product=productSaved currentUser=../currentUser}}
+      {{else}}
+      <p>No hay proyectos que mostrar</p>
+      {{/each}}
+   
+
+
+
     <h1 id="venta">En venta</h1>
     <br>
     <br>
 
-  {{#each currentUser.products as |product|}}
- 
+    {{#each currentUser.products as |product|}}
+
     {{> card product=product currentUser=../currentUser}}
-    
-  {{else}}
+
+    {{else}}
     <p>No hay proyectos que mostrar</p>
-  {{/each}}
+    {{/each}}
     <br>
     <br>
     <h1 id="comprados">Comprados</h1>
 
-   <ul>
+    <ul>
 
-    
 
-</ul>
+
+    </ul>
   </section>
 </div>

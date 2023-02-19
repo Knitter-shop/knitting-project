@@ -30,3 +30,4 @@ hbs.registerHelper('hasSave', function (options) {
     return options.inverse(this);
   }
 })
+

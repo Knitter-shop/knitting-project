@@ -16,6 +16,7 @@
     </form>
 
     {{/isOwner}}
+
     {{#if currentUser}}
     <button class="like-btn btn text-primary" type="button" value="{{product.id}}">
       <span>{{product.likes.length}}</span>
@@ -26,7 +27,7 @@
       {{/hasLike}}
     </button>
     {{else}}
-    <span>{{product.likes.length}}<i class="bi bi-heart-fill"></i></span>
+    <span>{{product.likes.length}}<i class="bi bi-heart"></i></span>
     {{/if}}
   </div>
 
@@ -40,7 +41,8 @@
       <i class="bi bi-bookmark"></i>
       {{/hasSave}}
     </button>
-   
+   {{else}}
+    <i class="bi bi-bookmark"></i></span>
     {{/if}}
   </div>
 
