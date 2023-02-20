@@ -5,7 +5,7 @@ hbs.registerPartials(path.join(__dirname, '../views/partials'));
 
 hbs.registerHelper('isOwner', function (options) {
     const { currentUser, product } = options.hash;
-    if (currentUser && currentUser.id === String(product.user._id)) {
+    if (currentUser && product && currentUser.id === String(product.user._id)) {
       return options.fn(this);
     } else {
       return options.inverse(this);

@@ -48,16 +48,20 @@ module.exports.edit = (req, res, next) => {
   Product.findById(req.params.id)
 
     .then((product) => {
-      res.render(`product/form-product`, { product });
+      res.render('product/form-product', { product });
     })
     .catch((err) => next(err));
 };
 
 module.exports.doEdit = (req, res, next) => {
-  Product.findByIdAndUpdate(req.params.id, req.body)
+  const updates = {...req.body}
+  if (req.file) {
+    updates.image = req.file.path
+  }
+  Product.findByIdAndUpdate(req.params.id, updates)
 
     .then((product) => {
-      res.redirect(`/product/${product.id}/detail`);
+      res.redirect(`/products/${product.id}/detail`);
     })
     .catch((err) => next(err));
 };

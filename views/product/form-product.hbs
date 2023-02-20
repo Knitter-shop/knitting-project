@@ -1,7 +1,7 @@
 {{#isOwner currentUser=currentUser product=product}}
 <h1 class="text-primary">Edita el proyecto</h1>
 <h3 class="">¡Actualiza tu proyecto de forma sencilla!</h3>
-  <form action="/product/{{product.id}}/edit" enctype="multipart/form-data" method="POST"></form>
+  <form action="/product/{{product.id}}/edit" enctype="multipart/form-data" method="POST">
 {{else}}
 <h1 class="text-primary">Crea tu proyecto</h1>
 <h3 class="">¡Crea tu proyecto, vende el patrón, el...!</h3>
