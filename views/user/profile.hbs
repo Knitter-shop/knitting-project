@@ -13,7 +13,7 @@ Hello {{currentUser.firstName}}
 
     {{#each currentUser.saves as |productSaved|}}
 
-    {{> card product=productSaved currentUser=../currentUser}}
+    {{> card product=productSaved.product currentUser=../currentUser}}
     {{else}}
     <p>No hay proyectos que mostrar</p>
     {{/each}}

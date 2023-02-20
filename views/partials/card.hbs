@@ -34,8 +34,8 @@
     {{/if}}
   </div>
 
-  {{#if currentUser}}
   <div class="d-flex align-items-center" style="margin-left: 60px;">
+    {{#if currentUser}}
     <button class="save-btn btn text-primary" type="button" value="{{product.id}}">
 
       {{#hasSave currentUser=currentUser product=product}}
@@ -45,13 +45,8 @@
       {{/hasSave}}
     </button>
     {{else}}
-    <i class="bi bi-bookmark"></i></span>
+    <i class="bi bi-bookmark"></i>
     {{/if}}
   </div>
-
-  {{!-- <h3>{{product.name}}</h3>
-  <p>Precio: {{product.price}}</p>
-  <p>Descripción: {{product.description}}</p>
-  <p>Usuario actual: {{currentUser.name}}</p> --}}
 
 </div>
