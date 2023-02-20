@@ -19,7 +19,7 @@ module.exports.doCreate = (req, res, next) => {
     })
     .catch((err) => {
       if (mongoose.Error.ValidationError) {
-        res.render("product/form-products", {
+        res.render("product/form-product", {
           product: req.body.body,
           errors: err.errors,
         });
@@ -42,4 +42,26 @@ module.exports.detail = (req, res, next) => {
       res.render("product/product-detail", { product });
     })
     .catch((err) => console.error(err));
+};
+
+module.exports.edit = (req, res, next) => {
+  Product.findById(req.params.id)
+
+    .then((product) => {
+      res.render('product/form-product', { product });
+    })
+    .catch((err) => next(err));
+};
+
+module.exports.doEdit = (req, res, next) => {
+  const updates = {...req.body}
+  if (req.file) {
+    updates.image = req.file.path
+  }
+  Product.findByIdAndUpdate(req.params.id, updates)
+
+    .then((product) => {
+      res.redirect(`/products/${product.id}/detail`);
+    })
+    .catch((err) => next(err));
 };

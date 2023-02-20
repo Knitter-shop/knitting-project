@@ -30,7 +30,8 @@
       {{/hasLike}}
     </button>
     {{else}}
-    <span>{{product.likes.length}}<i class="bi bi-heart"></i></span>
+    <button class="like-btn btn text-primary" type="button">
+      <span>{{product.likes.length}}</span><i class="bi bi-heart"></i></button>
     {{/if}}
   </div>
 

@@ -4,7 +4,8 @@ const express = require('express');
 const logger = require('morgan');
 const createError = require('http-errors');
 const passport = require('passport');
-const flash = require('connect-flash')
+const flash = require('connect-flash');
+
 
 /* DB connection */
 require ('./config/db.config')
