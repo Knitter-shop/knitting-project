@@ -39,6 +39,8 @@ router.get(
 );
 router.get("/auth/google/callback", authController.doLoginGoogle);
 
+router.get('/activate/:token', authMiddleware.isNotAuthenticated, authController.activate)
+
 router.get("/logout", authMiddleware.isAuthenticated, authController.doLogout);
 
 //User

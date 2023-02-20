@@ -2,6 +2,7 @@ const User = require('../models/User.model');
 const mongoose = require('mongoose');
 const passport = require('passport');
 const { GENERIC_ERROR_MESSAGE } = require('../config/passport.config');
+const mailer = require('../config/mailer.config');
 
 
 //SignUp
@@ -32,6 +33,7 @@ module.exports.doSignup = (req, res, next) => {
         } else {
           return User.create(req.body)
             .then(userCreated => {
+              mailer.sendActivationEmail(userCreated.email, userCreated.activationToken)
               res.redirect('/login')
             })
         }
@@ -73,6 +75,7 @@ const doLoginWithStrategy = (req, res, next, strategy = 'local-auth') => {
         if (loginError) {
           next(loginError)
         } else {
+          req.flash('flashMessage', 'You have succesfully signed in')
           res.redirect('/products');
         }
       })
@@ -92,3 +95,17 @@ module.exports.doLogout = (req, res, next) => {
   req.session.destroy();
   res.redirect('/login')
 }
+
+module.exports.activate = (req, res, next) => {
+  const activationToken = req.params.token;
+
+  User.findOneAndUpdate(
+    { activationToken, active: false },
+    { active: true }
+  )
+    .then(() => {
+      req.flash('flashMessage', 'You have activated your account. Welcome!')
+      res.redirect('/login')
+    })
+    .catch(err => next(err))
+  }
