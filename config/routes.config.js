@@ -96,6 +96,11 @@ router.post(
   userController.like
 );
 
+//Saves
+router.post("/products/:id/save", authMiddleware.isAuthenticated, userController.save)
+
+
+
 router.get("/products/:id/detail", productController.detail);
 
 module.exports = router;

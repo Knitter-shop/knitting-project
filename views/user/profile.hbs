@@ -6,59 +6,40 @@ Hello {{currentUser.firstName}}
   <section class="border border-bottom-0 border-top-0 w-100 p-4">
 
     <h1 id="descubre">Descubre....</h1>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
+
+
+
     <h1 id="guardados">Guardados</h1>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <h1 id="venta">En venta</h1>
-    <br>
-    <br>
 
-  {{#each currentUser.products as |product|}}
- 
-    {{> card product=product currentUser=../currentUser}}
-    
-  {{else}}
+    {{#each currentUser.saves as |productSaved|}}
+
+    {{> card product=productSaved.product currentUser=../currentUser}}
+    {{else}}
     <p>No hay proyectos que mostrar</p>
-  {{/each}}
-    <br>
-    <br>
-    <h1 id="comprados">Comprados</h1>
+    {{/each}}
 
-   <ul>
 
-    
 
-</ul>
+    <div>
+      <h1 id="venta">En venta</h1>
+    </div>
+
+    <div class="container-profile">
+
+      {{#each currentUser.products as |product|}}
+
+      {{> card product=product currentUser=../currentUser}}
+
+      {{else}}
+      <p>No hay proyectos que mostrar</p>
+      {{/each}}
+
+    </div>
+    <div>
+      <h1 id="comprados">Comprados</h1>
+    </div>
+
+
+
   </section>
 </div>
