@@ -1,19 +1,23 @@
-{{#if currentUser}}
-  <h1 class="text-primary">Recomendados para tí</h1>
-{{else}}
-  <h1 class="text-primary">Encuentra tu proyecto</h1>
-{{/if}}
+<div class="content">
+  <div class="content2">
+    {{#if currentUser}}
+    <h1 class="text-primary">Recomendados para tí</h1>
+    {{else}}
+    <h1 class="text-primary">Encuentra tu proyecto</h1>
+    {{/if}}
 
-<a href="/products/new-product"> Crea un proyecto </a>
+    <a class="btn btn-primary" href="/products/new-product"> Crea un proyecto </a>
+  </div>
 
-<div class="container">
-    
-  {{#each products as |product|}}
+  <div class="container-products">
+
+    {{#each products as |product|}}
 
     {{> card product=product currentUser=../currentUser}}
 
 
-  {{else}}
+    {{else}}
     <p>No hay proyectos que mostrar</p>
-  {{/each}}
+    {{/each}}
+  </div>
 </div>
