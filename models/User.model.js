@@ -12,6 +12,7 @@ const userSchema = new mongoose.Schema(
     },
     firstName: {
       type: String,
+      default: "user"
     },
     lastName: {
       type: String,
@@ -85,6 +86,13 @@ userSchema.virtual('likes', {
 
 userSchema.virtual('products', {
   ref: 'Product',
+  foreignField: 'user',
+  localField: '_id',
+  justOne: false
+});
+
+userSchema.virtual('saves', {
+  ref: 'Save',
   foreignField: 'user',
   localField: '_id',
   justOne: false
