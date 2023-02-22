@@ -25,3 +25,10 @@
     grid-gap: 10px;
     grid-auto-rows: minmax(100px, auto);
 }
+
+.card-img-top {
+    height: 250px;
+    object-fit: contain;
+    object-position: center;
+  }
+  
