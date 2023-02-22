@@ -42,7 +42,7 @@
     <div class="mb-3" style="display:none" id="productPrice">
       <label for="productPrice" class="form-label">Precio del artículo</label>
       <input value="{{product.productPrice}}" type="number"
-        class="form-control {{#if errors.productPrice}}is-invalid{{/if}}" id="productPrice" name="productPrice" required />
+        class="form-control {{#if errors.productPrice}}is-invalid{{/if}}" id="productPrice" name="productPrice"/>
       <div class="invalid-feedback">
         {{errors.productPrice}}
       </div>
@@ -57,7 +57,7 @@
     <div class="mb-3" style="display:none" id="patternPrice">
       <label for="patternPrice" class="form-label">Precio del patrón</label>
       <input value="{{product.patternPrice}}" type="number"
-        class="form-control {{#if errors.patternPrice}}is-invalid{{/if}}" id="patternPrice" name="patternPrice" required />
+        class="form-control {{#if errors.patternPrice}}is-invalid{{/if}}" id="patternPrice" name="patternPrice"/>
       <div class="invalid-feedback">
         {{errors.patternPrice}}
       </div>
@@ -72,7 +72,7 @@
     <div class="mb-3" style="display:none" id="kitPrice">
       <label for="kitPrice" class="form-label">Precio del kit completo ( material + patrón )</label>
       <input value="{{product.kitPrice}}" type="number"
-        class="form-control {{#if errors.kitPrice}}is-invalid{{/if}}" id="kitPrice" name="kitPrice" required />
+        class="form-control {{#if errors.kitPrice}}is-invalid{{/if}}" id="kitPrice" name="kitPrice"/>
       <div class="invalid-feedback">
         {{errors.kitPrice}}
       </div>
@@ -86,8 +86,8 @@
     </div>
     <div class="mb-3" style="display:none" id="videoTutorial">
       <label for="videoTutorial" class="form-label">Añade la url del video tutorial que quieras compartir</label>
-      <input value="{{product.videoTutorial}}" type="number"
-        class="form-control {{#if errors.videoTutorial}}is-invalid{{/if}}" id="videoTutorial" name="videoTutorial" required />
+      <input value="{{product.videoTutorial}}" type="text" pattern="^(https?|ftp)://[^\s/$.?#].[^\s]*$" 
+        class="form-control {{#if errors.videoTutorial}}is-invalid{{/if}}" id="videoTutorial" name="videoTutorial"/>
       <div class="invalid-feedback">
         {{errors.videoTutorial}}
       </div>
