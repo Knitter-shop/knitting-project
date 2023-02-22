@@ -1,6 +1,8 @@
 <div class="card" style="width: 18rem;">
   <div>
-    <img src="{{ product.image }}" class="card-img-top" alt="{{ product.productName }}">
+    <a href="/products/{{product.id}}/detail">
+      <img src="{{ product.image }}" class="card-img-top" alt="{{ product.productName }}">
+    </a>
   </div>
   <div>
     <h4 class="mb-1"><a href="/products/{{product.id}}/detail"> {{product.productName}} </a></h4>
@@ -8,7 +10,7 @@
     {{!-- <p class="card-text">Price: ${{ product.pattern.price }}</p> --}}
   </div>
   <div class="d-flex align-items-center" style="margin-left: 60px;">
-    <p class="card-text"><i class="bi bi-bag"></i> {{ product.pattern.price }} €</p>
+    <p class="card-text"><i class="bi bi-bag"></i> {{ product.price }} €</p>
 
 
     {{#isOwner currentUser=currentUser product=product}}

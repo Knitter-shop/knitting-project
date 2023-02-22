@@ -25,3 +25,13 @@
     grid-gap: 10px;
     grid-auto-rows: minmax(100px, auto);
 }
+
+.description {
+    width: 50%;
+}
+
+.description img {
+    width: 90%;
+    height: 600px
+}
+
