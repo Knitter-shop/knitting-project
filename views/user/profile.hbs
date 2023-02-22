@@ -4,23 +4,23 @@ Hello {{currentUser.firstName}}
 <div class="d-flex ">
   {{> sidebar }}
   <section class="border border-bottom-0 border-top-0 w-100 p-4">
-    
+
     <h1 id="descubre">Descubre....</h1>
 
 
-  <div>
-    <h1 id="guardados">Guardados</h1>
-  </div>
+    <div>
+      <h1 id="guardados">Guardados</h1>
+    </div>
 
-<div class="container-profile">
-    {{#each currentUser.saves as |productSaved|}}
+    <div class="container-profile">
+      {{#each currentUser.saves as |productSaved|}}
 
-    {{> card product=productSaved.product currentUser=../currentUser}}
-    {{else}}
-    <p>No hay proyectos que mostrar</p>
-    {{/each}}
+      {{> card product=productSaved.product currentUser=../currentUser}}
+      {{else}}
+      <p>No hay proyectos que mostrar</p>
+      {{/each}}
 
-</div>
+    </div>
 
     <div>
       <h1 id="venta">En venta</h1>
@@ -42,8 +42,8 @@ Hello {{currentUser.firstName}}
       <h1 id="comprados">Comprados</h1>
     </div>
 
- <div class="container-profile">
-</div>
+    <div class="container-profile">
+    </div>
 
   </section>
 </div>

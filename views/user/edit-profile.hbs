@@ -6,7 +6,7 @@
     <input value="{{currentUser.userName}}" type="text" class="form-control" id="userName" name="userName">
   </div>
 
-    <div class="mb-3">
+  <div class="mb-3">
     <label for="image" class="form-label">Foto de perfil</label>
     <input value="{{currentUser.image}}" type="text" class="form-control" id="image" name="image">
   </div>
@@ -33,12 +33,14 @@
 
   <div class="mb-3">
     <label for="address" class="form-label">Dirección</label>
-    <input value="{{currentUser.location.address}}" type="text" class="form-control" id="address" name="location.address">
+    <input value="{{currentUser.location.address}}" type="text" class="form-control" id="address"
+      name="location.address">
   </div>
 
   <div class="mb-3">
     <label for="number" class="form-label">Número</label>
-    <input value="{{currentUser.location.number}}" type="number" class="form-control" id="number" name="location.number">
+    <input value="{{currentUser.location.number}}" type="number" class="form-control" id="number"
+      name="location.number">
   </div>
 
   <div class="mb-3">
@@ -53,13 +55,14 @@
 
   <div class="mb-3">
     <label for="country" class="form-label">País</label>
-    <input value="{{currentUser.location.country}}" type="text" class="form-control" id="country" name="location.country">
+    <input value="{{currentUser.location.country}}" type="text" class="form-control" id="country"
+      name="location.country">
   </div>
 
   <div class="mb-3">
     <label for="email" class="form-label">Email</label>
-    <input value="{{currentUser.email}}" type="email" class="form-control {{#if errors.email}}is-invalid{{/if}}" id="email"
-      name="email" aria-describedby="emailHelp" disabled>
+    <input value="{{currentUser.email}}" type="email" class="form-control {{#if errors.email}}is-invalid{{/if}}"
+      id="email" name="email" aria-describedby="emailHelp" disabled>
     <div class="invalid-feedback">
       {{errors.email}}
     </div>

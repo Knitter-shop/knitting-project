@@ -4,13 +4,13 @@ const path = require("path");
 hbs.registerPartials(path.join(__dirname, "../views/partials"));
 
 hbs.registerHelper('isOwner', function (options) {
-    const { currentUser, product } = options.hash;
-    if (currentUser && product && product.user && currentUser.id === String(product.user._id)) {
-      return options.fn(this);
-    } else {
-      return options.inverse(this);
-    }
-  })
+  const { currentUser, product } = options.hash;
+  if (currentUser && product && product.user && currentUser.id === String(product.user._id)) {
+    return options.fn(this);
+  } else {
+    return options.inverse(this);
+  }
+})
 
 hbs.registerHelper("hasLike", function (options) {
   const { currentUser, product } = options.hash;

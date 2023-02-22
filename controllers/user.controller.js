@@ -4,6 +4,7 @@ const User = require("../models/User.model");
 const Save = require("../models/Save.model");
 
 module.exports.profile = (req, res, next) => {
+  console.log('****** ', req.user);
   res.render("user/profile");
 };
 

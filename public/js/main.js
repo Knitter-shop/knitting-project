@@ -1,59 +1,59 @@
 window.onload = () => {
-    const likeBtns = document.querySelectorAll('.like-btn')
-  
-    likeBtns.forEach(likeBtn => {
-      const productId = likeBtn.value;
-  
-      const iconNode = likeBtn.querySelector('.bi')
-      const likeCount = likeBtn.querySelector('span')
-  
-      likeBtn.onclick = () => {
-        axios.post(`/products/${productId}/like`)
-          .then((response) => {
-            if (response.status === 201) {
-              iconNode.classList.remove('bi-heart');
-              iconNode.classList.add('bi-heart-fill');
-              likeCount.textContent = Number(likeCount.textContent) + 1
-            } else if (response.status === 204) {
-              iconNode.classList.add('bi-heart');
-              iconNode.classList.remove('bi-heart-fill');
-              likeCount.textContent = Number(likeCount.textContent) - 1
-            }
-          })
-          .catch((err) => {
-            console.error(err)
-          })
-      }
-    })
+  const likeBtns = document.querySelectorAll('.like-btn')
 
-      const saveBtns = document.querySelectorAll('.save-btn')
+  likeBtns.forEach(likeBtn => {
+    const productId = likeBtn.value;
 
-      saveBtns.forEach(saveBtn => {
-        
-          const productId = saveBtn.value;
-          const iconNode = saveBtn.querySelector('.bi')
-         
-          saveBtn.onclick = () => {
-            axios.post(`/products/${productId}/save`)
-              .then((response) => {
-                if (response.status === 201) {
-                  iconNode.classList.remove('bi-bookmark');
-                  iconNode.classList.add('bi-bookmark-fill');
-                } else if (response.status === 204) {
-                  iconNode.classList.add('bi-bookmark');
-                  iconNode.classList.remove('bi-bookmark-fill');
-                }
-              })
-              .catch((err) => {
-                console.error(err)
-              })
+    const iconNode = likeBtn.querySelector('.bi')
+    const likeCount = likeBtn.querySelector('span')
+
+    likeBtn.onclick = () => {
+      axios.post(`/products/${productId}/like`)
+        .then((response) => {
+          if (response.status === 201) {
+            iconNode.classList.remove('bi-heart');
+            iconNode.classList.add('bi-heart-fill');
+            likeCount.textContent = Number(likeCount.textContent) + 1
+          } else if (response.status === 204) {
+            iconNode.classList.add('bi-heart');
+            iconNode.classList.remove('bi-heart-fill');
+            likeCount.textContent = Number(likeCount.textContent) - 1
           }
-      })
-  }
-  
+        })
+        .catch((err) => {
+          console.error(err)
+        })
+    }
+  })
+
+  const saveBtns = document.querySelectorAll('.save-btn')
+
+  saveBtns.forEach(saveBtn => {
+
+    const productId = saveBtn.value;
+    const iconNode = saveBtn.querySelector('.bi')
+
+    saveBtn.onclick = () => {
+      axios.post(`/products/${productId}/save`)
+        .then((response) => {
+          if (response.status === 201) {
+            iconNode.classList.remove('bi-bookmark');
+            iconNode.classList.add('bi-bookmark-fill');
+          } else if (response.status === 204) {
+            iconNode.classList.add('bi-bookmark');
+            iconNode.classList.remove('bi-bookmark-fill');
+          }
+        })
+        .catch((err) => {
+          console.error(err)
+        })
+    }
+  })
+}
+
 const deleteBtns = document.querySelectorAll(".delete-btn");
 [...deleteBtns].forEach(btn => {
-  btn.addEventListener("click", function(event) {
+  btn.addEventListener("click", function (event) {
     event.preventDefault();
     console.log(event.currentTarget)
     const formNode = event.currentTarget.parentNode;
