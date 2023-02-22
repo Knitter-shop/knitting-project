@@ -1,6 +1,6 @@
 {{#isOwner currentUser=currentUser product=product}}
 <h1 class="text-primary">Edita el proyecto</h1>
-<h3 class="">¡Actualiza tu proyecto de forma sencilla!</h3>
+<p>Agrega nuevas opciones de compra, actualiza la descripción o cambia la imagen para mantener tu proyecto siempre listo para los clientes. Simplemente completa el formulario y actualiza lo que necesites. ¡Mantén actualizado tu proyecto de Knitting!</p>
   <form action="/product/{{product.id}}/edit" enctype="multipart/form-data" method="POST">
 {{else}}
 <h1 class="text-primary">Crea tu proyecto</h1>
@@ -48,6 +48,75 @@
         {{errors.image}}
       </div>
     </div>
+    <div class="mb-3">
+      <label for="productSelect" class="form-label">¿Quieres vender el artículo?</label>
+      <select id="productSelect">
+        <option value="no">No</option>
+        <option value="si">Sí</option>
+      </select>
+    </div>
+    <div class="mb-3" style="display:none" id="productPrice">
+      <label for="productPrice" class="form-label">Precio del artículo</label>
+      <input value="{{product.productPrice}}" type="number"
+        class="form-control {{#if errors.productPrice}}is-invalid{{/if}}" id="productPrice" name="productPrice"/>
+      <div class="invalid-feedback">
+        {{errors.productPrice}}
+      </div>
+    </div>
+    <div class="mb-3">
+      <label for="patternSelect" class="form-label">¿Quieres vender el patrón?</label>
+      <select id="patternSelect">
+        <option value="no">No</option>
+        <option value="si">Sí</option>
+      </select>
+    </div>
+    <div class="mb-3" style="display:none" id="patternPrice">
+      <label for="patternPrice" class="form-label">Precio del patrón</label>
+      <input value="{{product.patternPrice}}" type="number"
+        class="form-control {{#if errors.patternPrice}}is-invalid{{/if}}" id="patternPrice" name="patternPrice"/>
+      <div class="invalid-feedback">
+        {{errors.patternPrice}}
+      </div>
+    </div>
+    <div class="mb-3">
+      <label for="kitSelect" class="form-label">¿Quieres vender el kit con material y patrón?</label>
+      <select id="kitSelect">
+        <option value="no">No</option>
+        <option value="si">Sí</option>
+      </select>
+    </div>
+    <div class="mb-3" style="display:none" id="kitPrice">
+      <label for="kitPrice" class="form-label">Precio del kit completo ( material + patrón )</label>
+      <input value="{{product.kitPrice}}" type="number"
+        class="form-control {{#if errors.kitPrice}}is-invalid{{/if}}" id="kitPrice" name="kitPrice"/>
+      <div class="invalid-feedback">
+        {{errors.kitPrice}}
+      </div>
+    </div>
+    <div class="mb-3">
+      <label for="videoSelect" class="form-label">¿Dispones de un video tutorial?</label>
+      <select id="videoSelect">
+        <option value="no">No</option>
+        <option value="si">Sí</option>
+      </select>
+    </div>
+    <div class="mb-3" style="display:none" id="videoTutorial">
+      <label for="videoTutorial" class="form-label">Añade la url del video tutorial que quieras compartir</label>
+      <input value="{{product.videoTutorial}}" type="text" pattern="^(https?|ftp)://[^\s/$.?#].[^\s]*$" 
+        class="form-control {{#if errors.videoTutorial}}is-invalid{{/if}}" id="videoTutorial" name="videoTutorial"/>
+      <div class="invalid-feedback">
+        {{errors.videoTutorial}}
+      </div>
+    </div>
+
+    
+    
+
 
     <button type="submit" class="btn btn-primary">{{#isOwner currentUser=currentUser product=product}}Actualiza tu proyecto{{else}}Crea tu proyecto{{/isOwner}}</button>
   </form>
+
+
+  <script src="/js/product.form.js"></script>
+
+

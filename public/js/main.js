@@ -51,3 +51,11 @@ window.onload = () => {
       })
   }
   
+const deleteBtn = document.getElementById("delete-btn");
+deleteBtn.addEventListener("click", function(event) {
+    event.preventDefault();
+    if (confirm("¿Está seguro de que desea eliminar este producto?")) {
+      // Si el usuario hace clic en "Aceptar" en el pop-up, envía el formulario de eliminación
+      document.getElementById("delete-form").submit();
+    }
+  });

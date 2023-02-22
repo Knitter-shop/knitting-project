@@ -27,6 +27,14 @@
     overflow-y: scroll;
 }
 
+
+.card-img-top {
+    height: 250px;
+    object-fit: contain;
+    object-position: center;
+  }
+  
+
 .description {
     width: 50%;
 }

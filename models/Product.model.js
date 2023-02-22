@@ -19,34 +19,18 @@ const productSchema = new mongoose.Schema(
         type: String,
         required : [true, 'File format is not supported'],
       },
-      price: {
-        type: Number,
-        default: 0,
+      patternPrice: {
+        type: Number
+      },
+      videoTutorial: {
+        type: String
+      },
+      kitPrice: {
+        type: Number
+      },
+      productPrice: {
+        type: Number
       }
-      // pattern: {
-      //   type: {
-      //     name: String,
-      //     price: Number
-      //   }
-      // },
-      // videoTutorial: {
-      //   type: {
-      //     name: String,
-      //     price: Number
-      //   }
-      // },
-      // kit: {
-      //   type: {
-      //     name: String,
-      //     price: Number
-      //   }
-      // },
-      // productCreated: {
-      //   type: {
-      //     name: String,
-      //     price: Number
-      //   }
-      // }
     },
     {
       timestamps: true,
