@@ -38,6 +38,7 @@ module.exports.delete = (req, res, next) => {
 
 module.exports.detail = (req, res, next) => {
   Product.findById(req.params.id)
+    .populate('likes')
     .then((product) => {
       res.render("product/product-detail", { product });
     })

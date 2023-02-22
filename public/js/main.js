@@ -51,11 +51,15 @@ window.onload = () => {
       })
   }
   
-const deleteBtn = document.getElementById("delete-btn");
-deleteBtn.addEventListener("click", function(event) {
+const deleteBtns = document.querySelectorAll(".delete-btn");
+[...deleteBtns].forEach(btn => {
+  btn.addEventListener("click", function(event) {
     event.preventDefault();
+    console.log(event.currentTarget)
+    const formNode = event.currentTarget.parentNode;
+    ///currentTarget
     if (confirm("¿Está seguro de que desea eliminar este producto?")) {
-      // Si el usuario hace clic en "Aceptar" en el pop-up, envía el formulario de eliminación
-      document.getElementById("delete-form").submit();
+      formNode.submit();
     }
   });
+})

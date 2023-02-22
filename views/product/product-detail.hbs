@@ -13,9 +13,9 @@
             <button class="like-btn btn text-primary" type="button" value="{{product.id}}">
                 <span>{{product.likes.length}}</span>
                 {{#hasLike currentUser=currentUser product=product}}
-                <i class="bi bi-heart-fill"></i>
+                    <i class="bi bi-heart-fill"></i>
                 {{else}}
-                <i class="bi bi-heart"></i>
+                    <i class="bi bi-heart"></i>
                 {{/hasLike}}
             </button>
             {{else}}

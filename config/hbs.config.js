@@ -12,16 +12,6 @@ hbs.registerHelper('isOwner', function (options) {
     }
   })
 
-
-hbs.registerHelper('hasLike', function (options) {
-  const { currentUser, product } = options.hash;
-  if (currentUser && currentUser.id === String(product.user._id)) {
-    return options.fn(this);
-  } else {
-    return options.inverse(this);
-  }
-});
-
 hbs.registerHelper("hasLike", function (options) {
   const { currentUser, product } = options.hash;
   if (
