@@ -55,7 +55,7 @@ module.exports.edit = (req, res, next) => {
 };
 
 module.exports.doEdit = (req, res, next) => {
-  const updates = {...req.body}
+  const updates = { ...req.body }
   if (req.file) {
     updates.image = req.file.path
   }

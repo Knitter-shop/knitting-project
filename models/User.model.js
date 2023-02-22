@@ -48,7 +48,7 @@ const userSchema = new mongoose.Schema(
     },
     telephone: {
       type: Number,
-      
+
     },
     active: {
       type: Boolean,
@@ -58,9 +58,9 @@ const userSchema = new mongoose.Schema(
       type: String,
       default: () => {
         return Math.random().toString(36).substring(7) +
-        Math.random().toString(36).substring(7) +
-        Math.random().toString(36).substring(7) +
-        Math.random().toString(36).substring(7)
+          Math.random().toString(36).substring(7) +
+          Math.random().toString(36).substring(7) +
+          Math.random().toString(36).substring(7)
       }
     },
   },
@@ -72,7 +72,7 @@ const userSchema = new mongoose.Schema(
   }
 );
 
-userSchema.pre('save', function(next) {
+userSchema.pre('save', function (next) {
   const rawPassword = this.password;
   if (this.isModified('password')) {
     bcrypt.hash(rawPassword, SALT_ROUNDS)
@@ -86,7 +86,7 @@ userSchema.pre('save', function(next) {
   }
 })
 
-userSchema.methods.checkPassword = function(passwordToCompare) {
+userSchema.methods.checkPassword = function (passwordToCompare) {
   return bcrypt.compare(passwordToCompare, this.password);
 };
 

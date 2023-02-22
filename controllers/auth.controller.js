@@ -15,7 +15,7 @@ module.exports.doSignup = (req, res, next) => {
   const renderWithErrors = (errors) => {
     const userData = { ...req.body }
     delete userData.password
-    delete userData.repeatPassword 
+    delete userData.repeatPassword
 
     res.render('auth/signup', {
       user: userData,
@@ -108,4 +108,4 @@ module.exports.activate = (req, res, next) => {
       res.redirect('/login')
     })
     .catch(err => next(err))
-  }
+}

@@ -15,6 +15,6 @@ module.exports.sessionConfig = expressSession({
   },
   store: new MongoStore({
     mongoUrl: MONGO_URL,
-  
+
   })
 })
