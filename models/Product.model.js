@@ -19,29 +19,17 @@ const productSchema = new mongoose.Schema(
         type: String,
         required : [true, 'File format is not supported'],
       },
-      pattern: {
-        type: {
-          name: String,
-          price: Number
-        }
+      patternPrice: {
+        type: Number
       },
       videoTutorial: {
-        type: {
-          name: String,
-          price: Number
-        }
+        type: String
       },
-      kit: {
-        type: {
-          name: String,
-          price: Number
-        }
+      kitPrice: {
+        type: Number
       },
-      productCreated: {
-        type: {
-          name: String,
-          price: Number
-        }
+      productPrice: {
+        type: Number
       }
     },
     {
