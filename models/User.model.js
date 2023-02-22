@@ -50,6 +50,19 @@ const userSchema = new mongoose.Schema(
       type: Number,
       
     },
+    active: {
+      type: Boolean,
+      default: false
+    },
+    activationToken: {
+      type: String,
+      default: () => {
+        return Math.random().toString(36).substring(7) +
+        Math.random().toString(36).substring(7) +
+        Math.random().toString(36).substring(7) +
+        Math.random().toString(36).substring(7)
+      }
+    },
   },
   {
     timestamps: true,
