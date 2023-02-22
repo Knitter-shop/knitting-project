@@ -26,3 +26,12 @@
     height: 850px;
     overflow-y: scroll;
 }
+
+.description {
+    width: 50%;
+}
+
+.description img {
+    width: 90%;
+    height: 600px
+}

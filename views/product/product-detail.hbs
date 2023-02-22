@@ -1,6 +1,41 @@
-<h1>{{product.productName}}</h1>
+<div style="display:flex; margin-top:50px">
+    <div class="description">
+        <h1>{{product.productName}}</h1>
+        <p>{{product.description}}</p>
+    </div>
+    <div class="description">
+        <img src="{{product.image}}" alt="{{product.productName}}">
+        <div>
 
-<div>
-    <p>{{product.description}}</p>
-   <img src="{{product.image}}" alt="">
+            {{!-- <img src="{{currentUser.image}}" alt=""> --}}
+
+            {{#if currentUser}}
+            <button class="like-btn btn text-primary" type="button" value="{{product.id}}">
+                <span>{{product.likes.length}}</span>
+                {{#hasLike currentUser=currentUser product=product}}
+                <i class="bi bi-heart-fill"></i>
+                {{else}}
+                <i class="bi bi-heart"></i>
+                {{/hasLike}}
+            </button>
+            {{else}}
+            <button class="like-btn btn text-primary" type="button">
+                <span>{{product.likes.length}}</span><i class="bi bi-heart"></i></button>
+            {{/if}}
+
+            {{#if currentUser}}
+            <button class="save-btn btn text-primary" type="button" value="{{product.id}}">
+
+                {{#hasSave currentUser=currentUser product=product}}
+                <i class="bi bi-bookmark-fill"></i>
+                {{else}}
+                <i class="bi bi-bookmark"></i>
+                {{/hasSave}}
+            </button>
+            {{else}}
+            <button class="save-btn btn text-primary" type="button">
+                <i class="bi bi-bookmark"></i></button>
+            {{/if}}
+        </div>
+    </div>
 </div>

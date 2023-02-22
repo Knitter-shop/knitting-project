@@ -25,6 +25,14 @@
       </div>
     </div>
     <div class="mb-3">
+      <label for="price" class="form-label">Precio</label>
+      <input value="{{product.price}}" type="number"
+        class="form-control {{#if errors.price}}is-invalid{{/if}}" id="price" name="price" required />
+      <div class="invalid-feedback">
+        {{errors.price}}
+      </div>
+      </div>
+    <div class="mb-3">
       <label for="image" class="form-label">Imagen</label>
       <input value="{{product.image}}" type="file" class="form-control {{#if errors.image}}is-invalid{{/if}}" id="image"
         name="image" />
