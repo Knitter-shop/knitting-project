@@ -1,32 +1,14 @@
 <div class="card" style="width: 18rem; height: 400px">
   <div>
-    <a href="/products/{{product.id}}/detail">
+    <a class="product-name" href="/products/{{product.id}}/detail">
       <img src="{{ product.image }}" class="card-img-top" style="height: 300px" alt="{{ product.productName }}">
+      <h4 > {{product.productName}}</h4>
+    </a>
     </a>
   </div>
-  <div>
-    <h4 class="mb-1"><a href="/products/{{product.id}}/detail"> {{product.productName}} </a></h4>
-    {{!-- <p class="card-text">{{ product.description }}</p> --}}
-    {{!-- <p class="card-text">Price: ${{ product.productPrice }}</p> --}}
-  </div>
-  <container class="card-container">
-    <div class="d-flex align-items-center" style="margin-left: 60px;">
-      <p class="card-text"><i class="bi bi-bag"></i> {{ product.productPrice }} €</p>
-
-
-      {{#isOwner currentUser=currentUser product=product}}
-      <button class="edit-btn btn text-primary"><a href="/product/{{product.id}}/edit">
-          <i class="bi bi-pencil-square"></i></a>
-      </button>
-
-
-      <form class="m-0" action="/products/{{product.id}}/delete" method="POST">
-        <button class="btn text-danger delete-btn" type="submit">
-          <i class="bi bi-trash3-fill"></i>
-        </button>
-      </form>
-
-      {{/isOwner}}
+  <div class="card-container">
+    <div class="d-flex align-items-center justify-content-center">
+      <p class="card-text" style="margin-top: 15px;"><i class="bi bi-bag"></i> {{ product.productPrice }} €</p>
 
       {{#if currentUser}}
       <button class="like-btn btn text-primary" type="button" value="{{product.id}}">
@@ -41,23 +23,41 @@
       <button class="like-btn btn text-primary" type="button">
         <span>{{product.likes.length}}</span><i class="bi bi-heart"></i></button>
       {{/if}}
-    </div>
+   
+   {{#if currentUser}}
+    <button class="save-btn btn text-primary" type="button" value="{{product.id}}">
 
-    <div class="d-flex align-items-center" style="margin-left: 60px;">
-      {{#if currentUser}}
-      <button class="save-btn btn text-primary" type="button" value="{{product.id}}">
-
-        {{#hasSave currentUser=currentUser product=product}}
-        <i class="bi bi-bookmark-fill"></i>
-        {{else}}
-        <i class="bi bi-bookmark"></i>
-        {{/hasSave}}
-      </button>
+      {{#hasSave currentUser=currentUser product=product}}
+      <i class="bi bi-bookmark-fill"></i>
       {{else}}
-      <button class="save-btn btn text-primary" type="button">
-        <i class="bi bi-bookmark"></i></button>
-      {{/if}}
+      <i class="bi bi-bookmark"></i>
+      {{/hasSave}}
+    </button>
+    {{else}}
+    <button class="save-btn btn text-primary" type="button">
+      <i class="bi bi-bookmark"></i></button>
+    {{/if}}
+
+
+    {{#isOwner currentUser=currentUser product=product}}
+    <button class="edit-btn btn text-primary"><a href="/product/{{product.id}}/edit">
+        <i class="bi bi-pencil-square"></i></a>
+    </button>
+
+
+    <form class="m-0" action="/products/{{product.id}}/delete" method="POST">
+      <button class="btn text-danger delete-btn" type="submit">
+        <i class="bi bi-trash3-fill"></i>
+      </button>
+    </form>
+
+    {{/isOwner}}
+   
+   
     </div>
-  </container>
+
+
+    
+  </div>
 
 </div>
