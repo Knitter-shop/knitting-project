@@ -1,0 +1,75 @@
+<div style="display:flex; margin-top:50px">
+    <div class="description">
+        <h1>{{product.productName}}</h1>
+        <p>{{product.description}}</p>
+
+<form action="/profile/{{currentUser.id}}/edit" method="POST">
+  <div class="mb-3">
+    <label for="address" class="form-label">Dirección</label>
+    <input value="{{currentUser.location.address}}" type="text" class="form-control" id="address"
+      name="location.address">
+  </div>
+
+  <div class="mb-3">
+    <label for="number" class="form-label">Número</label>
+    <input value="{{currentUser.location.number}}" type="number" class="form-control" id="number"
+      name="location.number">
+  </div>
+
+  <div class="mb-3">
+    <label for="city" class="form-label">Ciudad</label>
+    <input value="{{currentUser.location.city}}" type="text" class="form-control" id="city" name="location.city">
+  </div>
+
+  <div class="mb-3">
+    <label for="zip" class="form-label">Código postal</label>
+    <input value="{{currentUser.location.zip}}" type="text" class="form-control" id="zip" name="location.zip">
+  </div>
+
+  <div class="mb-3">
+    <label for="country" class="form-label">País</label>
+    <input value="{{currentUser.location.country}}" type="text" class="form-control" id="country"
+      name="location.country">
+  </div>
+  <button type="submit" class="btn btn-primary">Confirma la compra</button>
+
+</form>
+
+
+    </div>
+    <div class="description">
+        <img src="{{product.image}}" alt="{{product.productName}}">
+        <div>
+
+            {{!-- <img src="{{currentUser.image}}" alt=""> --}}
+
+            {{#if currentUser}}
+            <button class="like-btn btn text-primary" type="button" value="{{product.id}}">
+                <span>{{product.likes.length}}</span>
+                {{#hasLike currentUser=currentUser product=product}}
+                <i class="bi bi-heart-fill"></i>
+                {{else}}
+                <i class="bi bi-heart"></i>
+                {{/hasLike}}
+            </button>
+            {{else}}
+            <button class="like-btn btn text-primary" type="button">
+                <span>{{product.likes.length}}</span><i class="bi bi-heart"></i></button>
+            {{/if}}
+
+            {{#if currentUser}}
+            <button class="save-btn btn text-primary" type="button" value="{{product.id}}">
+
+                {{#hasSave currentUser=currentUser product=product}}
+                <i class="bi bi-bookmark-fill"></i>
+                {{else}}
+                <i class="bi bi-bookmark"></i>
+                {{/hasSave}}
+            </button>
+            {{else}}
+            <button class="save-btn btn text-primary" type="button">
+                <i class="bi bi-bookmark"></i></button>
+            {{/if}}
+        </div>
+    </div>
+</div>

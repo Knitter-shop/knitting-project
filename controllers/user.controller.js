@@ -2,6 +2,7 @@ const Product = require("../models/Product.model");
 const Like = require("../models/Like.model");
 const User = require("../models/User.model");
 const Save = require("../models/Save.model");
+const Purchase = requier("../models/Purchase.model");
 
 module.exports.profile = (req, res, next) => {
   console.log('****** ', req.user);
@@ -14,6 +15,7 @@ module.exports.products = (req, res, next) => {
     .populate("user")
     .populate("likes")
     .populate("saves")
+    .populate("purchase")
     .then((products) => {
       console.log(products.length);
       res.render("product/all-products", { products });
@@ -86,3 +88,4 @@ module.exports.save = (req, res, next) => {
     })
     .catch((err) => next(err));
 };
+

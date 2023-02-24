@@ -23,6 +23,10 @@ passport.deserializeUser((id, next) => {
         populate: "likes",
       },
     })
+    .populate({
+      path: "purchases",
+      populate: "products",
+    })
     .then((user) => {
       next(null, user);
     })

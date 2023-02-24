@@ -2,6 +2,35 @@
     <div class="description">
         <h1>{{product.productName}}</h1>
         <p>{{product.description}}</p>
+
+        {{#if product.productPrice}}
+        <h3 class="text-primary">Comprar {{product.productName}}</h3>
+        <form method="POST" action="/products/{{product.id}}/purchase-confirmation">
+            {{!-- <input type="hidden" name="price" value="{{product.productPrice}}" /> --}}
+            <input type="hidden" name="typeBuy" value="product" />
+            <button type="submit" class="btn btn-primary"> {{product.productPrice}} € </button>
+        </form>        
+        {{/if}}
+        {{#if product.patternPrice}}
+        <h3 class="text-primary">Comprar el patrón</h3>
+        <form method="POST" action="/products/{{product.id}}/purchase-confirmation">
+            {{!-- <input type="hidden" name="price" value="{{product.patternPrice}}" /> --}}
+            <input type="hidden" name="typeBuy" value="pattern" />
+            <button type="submit" class="btn btn-primary"> {{product.patternPrice}} € </button>
+        </form> 
+        {{/if}}
+        {{#if product.kitPrice}}
+        <h3 class="text-primary">¿Quieres el kit con el patrón + material para hacerlo? </h3>
+        <form method="POST" action="/products/{{product.id}}/purchase-confirmation">
+            {{!-- <input type="hidden" name="price" value="{{product.kitPrice}}" /> --}}
+            <input type="hidden" name="typeBuy" value="kit" />
+            <button type="submit" class="btn btn-primary"> {{product.kitPrice}} € </button>
+        </form>        
+        {{/if}}
+
+        {{!-- CÓMO SE PUEDE HACER UN IF PARA INDICAR ESTO SI NO ESTÁ EN VENTA
+        <img src="../../public/static/sad-wool.png" height="40"/>    
+        <p>Lo sentimos, no puedes comprar este artículo</p> --}}
     </div>
     <div class="description">
         <img src="{{product.image}}" alt="{{product.productName}}">

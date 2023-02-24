@@ -33,3 +33,14 @@ hbs.registerHelper("hasSave", function (options) {
     return options.inverse(this);
   }
 });
+
+hbs.registerHelper("hasPurchase", function (options) {
+  const { currentUser, product } = options.hash;
+  if (
+    currentUser.purchases.some((purchase) => purchase.product.id.toString() === product.id)
+  ) {
+    return options.fn(this);
+  } else {
+    return options.inverse(this);
+  }
+});

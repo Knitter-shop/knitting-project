@@ -91,6 +91,32 @@ router.post(
   productController.doEdit
 );
 
+// Products confirmation
+
+router.get(
+  "/products/:id/purchase-confirmation",
+  authMiddleware.isAuthenticated,
+  productController.confirmation
+);
+router.post(
+  "/products/:id/purchase-confirmation",
+  authMiddleware.isAuthenticated,
+  productController.doConfirmation
+);
+
+//Buy products
+
+// router.get(
+//   "/products/:id/buy",
+//   authMiddleware.isAuthenticated,
+//   productController.buy
+// );
+// router.post(
+//   "/products/:id/buy",
+//   authMiddleware.isAuthenticated,
+//   productController.doBuy
+// );
+
 //Likes
 router.post(
   "/products/:id/like",
@@ -99,10 +125,14 @@ router.post(
 );
 
 //Saves
-router.post("/products/:id/save", authMiddleware.isAuthenticated, userController.save)
+router.post(
+  "/products/:id/save", 
+  authMiddleware.isAuthenticated, 
+  userController.save
+  );
 
-
-
-router.get("/products/:id/detail", productController.detail);
+router.get(
+  "/products/:id/detail", 
+  productController.detail);
 
 module.exports = router;

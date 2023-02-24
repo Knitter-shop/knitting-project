@@ -6,7 +6,6 @@ module.exports.create = (req, res, next) => {
 };
 
 module.exports.doCreate = (req, res, next) => {
-  console.log(req.body);
   const newProduct = {
     ...req.body,
     user: req.user.id,
@@ -66,3 +65,13 @@ module.exports.doEdit = (req, res, next) => {
     })
     .catch((err) => next(err));
 };
+
+// module.exports.confirmation = (req, res, next) => {
+//   Product.findById(req.params.id)
+
+//     .then((product) => {
+//       res.render('/products/${product.id}/product-confirmation', { product });
+//     })
+//     .catch((err) => next(err));
+// };
+
