@@ -8,15 +8,25 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
+    margin-top: 30px;
 }
 
+
 .container-products {
+    margin-top: 30px;
     width: 100%;
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    grid-gap: 10px;
+    grid-template-columns: repeat(4, 2fr);
+    grid-gap: 50px;
     grid-auto-rows: minmax(100px, auto);
-  
+   
+}
+
+.container-products .card{
+    margin: 0 auto;
+    width: 90%;
+    height: 400px;
+    
 }
 
 .container-profile {
@@ -52,8 +62,13 @@
 list-style-type: none;
 padding: 0;
 display: flex;
-justify-content: space-around;
+justify-content: space-between;
 flex-wrap: nowrap;
+margin-bottom: 0px;
+}
+
+.navigator li {
+    margin: 20px;
 }
 
 
@@ -61,29 +76,51 @@ flex-wrap: nowrap;
     color: white;
     text-decoration: none;
     font-size: 24px;
+    margin-right: 20px;
 }
 
 .landing {
     width: 100%;
     height: 850px;
-    /* background-color: red; */
     background-image: url("../img/HomeImg.jpeg");
     background-repeat: no-repeat;
     background-size: cover;
 
 }
-
+.landing div {
+    position: absolute;
+    margin-top: 300px;
+    margin-left: 100px;
+    width: 570px;
+}
 .landing a {
-    background-color: blue;
+    background-color: #007F9C;
     color: white;
     text-decoration: none;
-    position: absolute;
-    margin-top: 30%;
-    margin-left: 10%;
+    padding: 10px;
+    font-size: 18px;
+}
+
+.landing h1 {
+    font-size: 70px;
+}
+
+.landing p {
+    font-size: 20px;
 }
 
 .product-name {
     text-decoration: none;
     color: black;
     text-align: center;
+}
+
+.contenedor {
+    width: 98%;
+    margin: 0 auto;
+}
+
+.section-products {
+    background-color: green;
+    height: 500px;
 }

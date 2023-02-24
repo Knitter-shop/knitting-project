@@ -1,4 +1,13 @@
-
 <div class="landing">
-   <a href="/products">Encuentra</a>
+   <div>
+      <h1>Comienza tu viaje</h1>
+      <p>Compra y vende artículos únicos, créalos tu mismo o aprende cómo hacerlos en sencillos pasos</p>
+      <a href="/products">Encuentra</a>
+   </div>
+</div>
+
+<div class="section-products">
+   {{#each products as |product|}}
+   {{> card product=product currentUser=../currentUser}}
+   {{/each}}
 </div>
