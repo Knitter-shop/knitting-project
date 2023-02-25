@@ -55,9 +55,7 @@ const deleteBtns = document.querySelectorAll(".delete-btn");
 [...deleteBtns].forEach(btn => {
   btn.addEventListener("click", function (event) {
     event.preventDefault();
-    console.log(event.currentTarget)
     const formNode = event.currentTarget.parentNode;
-    ///currentTarget
     if (confirm("¿Está seguro de que desea eliminar este producto?")) {
       formNode.submit();
     }

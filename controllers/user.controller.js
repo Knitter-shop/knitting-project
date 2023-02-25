@@ -2,22 +2,19 @@ const Product = require("../models/Product.model");
 const Like = require("../models/Like.model");
 const User = require("../models/User.model");
 const Save = require("../models/Save.model");
-const Purchase = requier("../models/Purchase.model");
+const Purchase = require("../models/Purchase.model");
 
 module.exports.profile = (req, res, next) => {
-  console.log('****** ', req.user);
   res.render("user/profile");
 };
 
 module.exports.products = (req, res, next) => {
-  //res.render('product/all-products');
   Product.find()
     .populate("user")
     .populate("likes")
     .populate("saves")
     .populate("purchase")
     .then((products) => {
-      console.log(products.length);
       res.render("product/all-products", { products });
     })
     .catch((err) => next(err));
@@ -86,6 +83,25 @@ module.exports.save = (req, res, next) => {
         });
       }
     })
+    .catch((err) => next(err));
+};
+
+module.exports.purchase = (req, res, next) => {
+  const user = req.user.id;
+  const product = req.params.id;
+
+  const purchase = {
+    user,
+    product,
+  };
+
+  Purchase.findOne({ user, product })
+    .then((Purchase) => {
+        return Purchase.create(purchase).then(() => {
+          res.status(201).json({ ok: true });
+        });
+      }
+    )
     .catch((err) => next(err));
 };
 

@@ -5,6 +5,7 @@ const authController = require("../controllers/auth.controller");
 const userController = require("../controllers/user.controller");
 const authMiddleware = require("../middlewares/auth.middleware");
 const productController = require("../controllers/product.controller");
+const purchaseController = require("../controllers/purchase.controller");
 
 const GOOGLE_SCOPES = [
   "https://www.googleapis.com/auth/userinfo.profile",
@@ -91,30 +92,46 @@ router.post(
   productController.doEdit
 );
 
-// Products confirmation
+// Purchase 
 
 router.get(
-  "/products/:id/purchase-confirmation",
+  "/products/purchase-confirmation",
   authMiddleware.isAuthenticated,
-  productController.confirmation
+  purchaseController.create
 );
 router.post(
   "/products/:id/purchase-confirmation",
   authMiddleware.isAuthenticated,
-  productController.doConfirmation
+  purchaseController.doCreate
+);
+
+router.get(
+  "/products/purchase-confirmation",
+  authMiddleware.isAuthenticated,
+  purchaseController.confirmation
+);
+router.post(
+  "/products/:id/purchase-confirmed",
+  authMiddleware.isAuthenticated,
+  purchaseController.doConfirmation
+);
+
+router.get(
+  "/products/:id/purchase-confirmed",
+  purchaseController.confirmed
 );
 
 //Buy products
 
 // router.get(
-//   "/products/:id/buy",
+//   "/products/:id/purchase-confirmation",
 //   authMiddleware.isAuthenticated,
-//   productController.buy
+//   purchaseController.buy
 // );
 // router.post(
-//   "/products/:id/buy",
+//   "/products/:id/purchase-confirmation",
 //   authMiddleware.isAuthenticated,
-//   productController.doBuy
+//   purchaseController.doBuy
 // );
 
 //Likes

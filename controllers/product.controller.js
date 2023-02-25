@@ -1,4 +1,5 @@
 const Product = require("../models/Product.model");
+// const Purchase = require("../models/Purchase.model")
 const mongoose = require("mongoose");
 
 module.exports.create = (req, res, next) => {
@@ -65,13 +66,4 @@ module.exports.doEdit = (req, res, next) => {
     })
     .catch((err) => next(err));
 };
-
-// module.exports.confirmation = (req, res, next) => {
-//   Product.findById(req.params.id)
-
-//     .then((product) => {
-//       res.render('/products/${product.id}/product-confirmation', { product });
-//     })
-//     .catch((err) => next(err));
-// };
 

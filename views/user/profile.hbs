@@ -40,6 +40,13 @@ Hello {{currentUser.firstName}}
 
     <div>
       <h1 id="comprados">Comprados</h1>
+      {{#each currentUser.purchases as |productPurchased|}}
+
+      {{> card product=productPurchased currentUser=../currentUser}}
+
+      {{else}}
+      <p>No hay proyectos que mostrar</p>
+      {{/each}}
     </div>
 
     <div class="container-profile">

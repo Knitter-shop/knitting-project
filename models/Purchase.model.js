@@ -12,6 +12,14 @@ const saveSchema = new mongoose.Schema(
       ref: 'Product',
       required: true,
     },
+    location: {
+      address: String,
+      number: Number,
+      additionalInfo: String,
+      city: String,
+      zip: Number,
+      country: String
+    },
   },
   {
     timestamps: true,
@@ -20,6 +28,7 @@ const saveSchema = new mongoose.Schema(
     }
   }
 );
+
 
 const Purchase = mongoose.model('Purchase', saveSchema);
 
