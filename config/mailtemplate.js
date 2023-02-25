@@ -299,11 +299,11 @@ module.exports.generatePurchase = (user, product, purchase) => {
   return (
     `
       <html>
-        hola , has comporado .
+        hola ${user.firstName}, has comporado .
 
-        Lo recibirás en  en breve.
+        Lo recibirás ${product.productName} en ${purchase.location} en breve.
 
-        Si no recibes el  en 15 días, puedes ponerte en contacto con nosotros respondiendo a este email.
+        Si no recibes el ${product.productName} en 15 días, puedes ponerte en contacto con nosotros respondiendo a este email.
       </html>
     `
   )

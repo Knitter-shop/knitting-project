@@ -51,7 +51,7 @@ module.exports.doConfirmation = (req, res, next) => {
       return Purchase.findById(purchase.id)
         .populate('product')
         .then(purchaseFound => {
-          sendPurchaseEmail(req.user, purchaseFound.product)
+          sendPurchaseEmail(req.user, purchaseFound.product, purchase)
           res.redirect(`/products/${purchase.id}/purchase-confirmed`);
         })
     })
