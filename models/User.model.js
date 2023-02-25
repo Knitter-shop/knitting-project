@@ -8,11 +8,11 @@ const EMAIL_PATTERN =
 const userSchema = new mongoose.Schema(
   {
     userName: {
-      type: String
+      type: String,
+      default: "user"
     },
     firstName: {
       type: String,
-      default: "user"
     },
     lastName: {
       type: String,
@@ -106,6 +106,13 @@ userSchema.virtual('products', {
 
 userSchema.virtual('saves', {
   ref: 'Save',
+  foreignField: 'user',
+  localField: '_id',
+  justOne: false
+});
+
+userSchema.virtual('purchases', {
+  ref: 'Purchase',
   foreignField: 'user',
   localField: '_id',
   justOne: false

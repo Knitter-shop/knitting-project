@@ -1,0 +1,36 @@
+<div style="display:flex; margin-top:50px">
+    <div class="description">
+        <h1>Confirma la dirección de envío</h1>
+
+<form action="/products/{{purchase.id}}/purchase-confirmed" method="POST">
+  <div class="mb-3">
+    <label for="address" class="form-label">Dirección</label>
+    <input value="{{currentUser.location.address}}" type="text" class="form-control" id="address"
+      name="address">
+  </div>
+
+  <div class="mb-3">
+    <label for="number" class="form-label">Número</label>
+    <input value="{{currentUser.location.number}}" type="number" class="form-control" id="number"
+      name="number">
+  </div>
+
+  <div class="mb-3">
+    <label for="city" class="form-label">Ciudad</label>
+    <input value="{{currentUser.location.city}}" type="text" class="form-control" id="city" name="city">
+  </div>
+
+  <div class="mb-3">
+    <label for="zip" class="form-label">Código postal</label>
+    <input value="{{currentUser.location.zip}}" type="text" class="form-control" id="zip" name="zip">
+  </div>
+
+  <div class="mb-3">
+    <label for="country" class="form-label">País</label>
+    <input value="{{currentUser.location.country}}" type="text" class="form-control" id="country"
+      name="country">
+  </div>
+  <button type="submit" class="btn btn-primary">Confirma la compra</button>
+
+</form>
+</div>

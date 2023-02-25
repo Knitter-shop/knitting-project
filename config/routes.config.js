@@ -5,6 +5,7 @@ const authController = require("../controllers/auth.controller");
 const userController = require("../controllers/user.controller");
 const authMiddleware = require("../middlewares/auth.middleware");
 const productController = require("../controllers/product.controller");
+const purchaseController = require("../controllers/purchase.controller");
 
 const GOOGLE_SCOPES = [
   "https://www.googleapis.com/auth/userinfo.profile",
@@ -91,6 +92,48 @@ router.post(
   productController.doEdit
 );
 
+// Purchase 
+
+router.get(
+  "/products/purchase-confirmation",
+  authMiddleware.isAuthenticated,
+  purchaseController.create
+);
+router.post(
+  "/products/:id/purchase-confirmation",
+  authMiddleware.isAuthenticated,
+  purchaseController.doCreate
+);
+
+router.get(
+  "/products/purchase-confirmation",
+  authMiddleware.isAuthenticated,
+  purchaseController.confirmation
+);
+router.post(
+  "/products/:id/purchase-confirmed",
+  authMiddleware.isAuthenticated,
+  purchaseController.doConfirmation
+);
+
+router.get(
+  "/products/:id/purchase-confirmed",
+  purchaseController.confirmed
+);
+
+//Buy products
+
+// router.get(
+//   "/products/:id/purchase-confirmation",
+//   authMiddleware.isAuthenticated,
+//   purchaseController.buy
+// );
+// router.post(
+//   "/products/:id/purchase-confirmation",
+//   authMiddleware.isAuthenticated,
+//   purchaseController.doBuy
+// );
+
 //Likes
 router.post(
   "/products/:id/like",
@@ -99,10 +142,14 @@ router.post(
 );
 
 //Saves
-router.post("/products/:id/save", authMiddleware.isAuthenticated, userController.save)
+router.post(
+  "/products/:id/save", 
+  authMiddleware.isAuthenticated, 
+  userController.save
+  );
 
-
-
-router.get("/products/:id/detail", productController.detail);
+router.get(
+  "/products/:id/detail", 
+  productController.detail);
 
 module.exports = router;

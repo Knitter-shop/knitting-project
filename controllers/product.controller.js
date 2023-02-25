@@ -1,4 +1,5 @@
 const Product = require("../models/Product.model");
+// const Purchase = require("../models/Purchase.model")
 const mongoose = require("mongoose");
 
 module.exports.create = (req, res, next) => {
@@ -6,7 +7,6 @@ module.exports.create = (req, res, next) => {
 };
 
 module.exports.doCreate = (req, res, next) => {
-  console.log(req.body);
   const newProduct = {
     ...req.body,
     user: req.user.id,
@@ -66,3 +66,4 @@ module.exports.doEdit = (req, res, next) => {
     })
     .catch((err) => next(err));
 };
+

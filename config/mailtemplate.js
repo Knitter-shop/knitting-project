@@ -294,3 +294,17 @@ module.exports.generateEmail = (token) => {
     </html>
     `
 }
+
+module.exports.generatePurchase = (user, product, purchase) => {
+  return (
+    `
+      <html>
+        hola , has comporado .
+
+        Lo recibirás en  en breve.
+
+        Si no recibes el  en 15 días, puedes ponerte en contacto con nosotros respondiendo a este email.
+      </html>
+    `
+  )
+}

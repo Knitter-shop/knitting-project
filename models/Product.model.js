@@ -50,6 +50,14 @@ productSchema.virtual('saves', {
   localField: '_id',
   justOne: false
 })
+
+productSchema.virtual('purchase', {
+  ref: 'Purchase',
+  foreignField: 'product',
+  localField: '_id',
+  justOne: false
+})
+
 const Product = mongoose.model('Product', productSchema);
 
 module.exports = Product;
