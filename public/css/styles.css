@@ -8,15 +8,26 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
+    margin-top: 30px;
 }
 
+
 .container-products {
+    margin-top: 30px;
     width: 100%;
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    grid-gap: 10px;
+    grid-template-columns: repeat(4, 2fr);
+    grid-gap: 50px;
     grid-auto-rows: minmax(100px, auto);
-  
+   
+}
+
+.container-products .card{
+    margin: 0 auto;
+    width: 90%;
+    height: 400px;
+    border-radius: 20px;
+    box-shadow: 2px 2px 5px #999
 }
 
 .container-profile {
@@ -29,7 +40,8 @@
 
 
 .card-img-top {
-    height: 250px;
+    /* height: 250px; */
+    width:100%;
     object-fit: contain;
     object-position: center;
   }
@@ -43,3 +55,101 @@
     width: 90%;
     height: 600px
 }
+
+.navigator {
+    background-color: darkgray;
+}
+
+.navigator ul {
+list-style-type: none;
+padding: 0;
+display: flex;
+justify-content: space-between;
+flex-wrap: nowrap;
+margin-bottom: 0px;
+}
+
+.navigator li {
+    margin: 20px;
+}
+
+
+.navigator a {
+    color: white;
+    text-decoration: none;
+    font-size: 24px;
+    margin-right: 20px;
+}
+
+.landing {
+    width: 100%;
+    height: 850px;
+    background-image: url("../img/HomeImg.jpeg");
+    background-repeat: no-repeat;
+    background-size: cover;
+
+}
+.landing div {
+    position: absolute;
+    margin-top: 300px;
+    margin-left: 100px;
+    width: 570px;
+}
+.landing a {
+    background-color: #b5a26f;
+    color: white;
+    text-decoration: none;
+    padding: 10px;
+    font-size: 18px;
+}
+
+.landing h1 {
+    font-size: 70px;
+}
+
+.landing p {
+    font-size: 20px;
+}
+
+.product-name {
+    text-decoration: none;
+    color: black;
+    text-align: center;
+}
+
+.contenedor {
+    width: 98%;
+    margin: 0 auto;
+}
+
+.section-products {
+    
+    height: 500px;
+}
+
+.landing2 {
+    width: 100%;
+    height: 850px;
+    background-image: url("../img/Pic2.jpeg");
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.landing2 a {
+    text-decoration: none;
+    color: white;
+    font-size: 70px;
+    margin-left: 100px;
+ 
+}
+
+.card-log {
+    width: 60%;
+    margin: 0 auto;
+    border: 4px solid #b5a26f;
+    margin-top: 30px;
+    border-radius: 20px;
+    /* box-shadow: 5px 5px 2px 2px #044858; */
+    padding: 20px
+}
+
