@@ -34,12 +34,15 @@ Hello {{currentUser.firstName}}
       {{/each}}
 
     </div>
-
     <div>
       <h1 id="comprados">Comprados</h1>
-      {{#each currentUser.purchases as |productPurchased|}}
+    </div>
 
-      {{> card product=productPurchased currentUser=../currentUser}}
+    <div class="container-profile">
+      
+      {{#each currentUser.purchases as |purchase|}}
+
+      {{> card product=purchase.product currentUser=../currentUser}}
 
       {{else}}
       <p>No hay proyectos que mostrar</p>

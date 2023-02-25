@@ -5,6 +5,7 @@ const Save = require("../models/Save.model");
 const Purchase = require("../models/Purchase.model");
 
 module.exports.profile = (req, res, next) => {
+  console.log(res.locals)
   res.render("user/profile");
 };
 

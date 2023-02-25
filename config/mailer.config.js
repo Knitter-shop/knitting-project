@@ -19,12 +19,11 @@ module.exports.sendActivationEmail = (email, token) => {
   });
 };
 
-module.exports.sendPurchaseEmail = (user, product) => {
+module.exports.sendPurchaseEmail = (user, product, purchase) => {
   transporter.sendMail({
     from: `Example name <${process.env.NODEMAILER_EMAIL}>`,
     to: user.email,
     subject: "Thanks for your purchase",
-    html: template.generatePurchase(user.name, product),
+    html: template.generatePurchase(user, product, purchase),
   });
 };
- /// generatePruchasdeEmail

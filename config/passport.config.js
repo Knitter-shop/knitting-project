@@ -81,7 +81,7 @@ passport.use(
       const family_name = profile.name.familyName;
       const email = (profile.emails && profile.emails[0].value) || undefined;
       const image = (profile.photos && profile.photos[0].value) || undefined;
-
+   
       if (googleID && email) {
         User.findOne({ email })
           .then((user) => {
@@ -101,6 +101,7 @@ passport.use(
               }
             } else {
               // Crear uno nuevo
+              console.log('givens_names', given_name, family_name)
               User.create({
                 firstName: given_name,
                 lastName: family_name,
