@@ -6,8 +6,19 @@
    </div>
 </div>
 
-<div class="section-products">
-   {{#each products as |product|}}
-   {{> card product=product currentUser=../currentUser}}
-   {{/each}}
+{{!-- <div class="section-products">
+       {{#each products as |product|}}
+
+    {{> card product=product currentUser=../currentUser}}
+
+
+    {{else}}
+    <p>No hay proyectos que mostrar</p>
+    {{/each}}
+</div> --}}
+
+<div class="landing2">
+   <div>
+      <a href="/products/new-product">Vende tus proyectos</a>
+   </div>
 </div>
