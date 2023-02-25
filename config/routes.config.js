@@ -121,19 +121,6 @@ router.get(
   purchaseController.confirmed
 );
 
-//Buy products
-
-// router.get(
-//   "/products/:id/purchase-confirmation",
-//   authMiddleware.isAuthenticated,
-//   purchaseController.buy
-// );
-// router.post(
-//   "/products/:id/purchase-confirmation",
-//   authMiddleware.isAuthenticated,
-//   purchaseController.doBuy
-// );
-
 //Likes
 router.post(
   "/products/:id/like",

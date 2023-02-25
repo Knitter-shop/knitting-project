@@ -15,7 +15,6 @@ const saveSchema = new mongoose.Schema(
     location: {
       address: String,
       number: Number,
-      additionalInfo: String,
       city: String,
       zip: Number,
       country: String

@@ -299,11 +299,27 @@ module.exports.generatePurchase = (user, product, purchase) => {
   return (
     `
       <html>
-        hola ${user.firstName}, has comporado .
+      <div
+      style="font-family:Ubuntu, Helvetica, Arial, sans-serif, Helvetica, Arial, sans-serif;font-size:13px;line-height:1;text-align:justify;color:#000000;"
+   ><p><span style="color: rgb(57, 63, 76);">Hola ${user.firstName}, has comporado ${product.productName}.</span></p></div>
 
-        Lo recibirás ${product.productName} en ${purchase.location} en breve.
-
-        Si no recibes el ${product.productName} en 15 días, puedes ponerte en contacto con nosotros respondiendo a este email.
+   <div
+   style="font-family:Ubuntu, Helvetica, Arial, sans-serif, Helvetica, Arial, sans-serif;font-size:13px;line-height:1;text-align:justify;color:#000000;"
+><p><span style="color: rgb(57, 63, 76);">En breve lo recibirás en el domicilio que has indicado:</span></p></div>
+<ul>
+  <li><div
+  style="font-family:Ubuntu, Helvetica, Arial, sans-serif, Helvetica, Arial, sans-serif;font-size:13px;line-height:1;text-align:justify;color:#000000;"
+><p><span style="color: rgb(57, 63, 76);"> Calle: ${purchase.location.address}, ${purchase.location.number}</li></span></p></div>
+  <li><div
+  style="font-family:Ubuntu, Helvetica, Arial, sans-serif, Helvetica, Arial, sans-serif;font-size:13px;line-height:1;text-align:justify;color:#000000;"
+><p><span style="color: rgb(57, 63, 76);"> ${purchase.location.zip}, ${purchase.location.city}</li></span></p></div>
+  <li> <div
+  style="font-family:Ubuntu, Helvetica, Arial, sans-serif, Helvetica, Arial, sans-serif;font-size:13px;line-height:1;text-align:justify;color:#000000;"
+><p><span style="color: rgb(57, 63, 76);">${purchase.location.country}</li></span></p></div>
+</ul>
+<div
+   style="font-family:Ubuntu, Helvetica, Arial, sans-serif, Helvetica, Arial, sans-serif;font-size:13px;line-height:1;text-align:justify;color:#000000;"
+><p><span style="color: rgb(57, 63, 76);">Si no recibes el pedido de ${product.productName} en 15 días, por favor ponte en contacto con nosotros o escríbenos a <a href="mailto:knitter.ironhack@gmail.com">knitter.ironhack@gmail.com</a>.</span></p></div>
       </html>
     `
   )
