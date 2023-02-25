@@ -1,4 +1,5 @@
-<h1 class="text-primary">Iniciar sesión</h1>
+<div class="card-log">
+<h1 style="color: #b5a26f; text-align: center">Iniciar sesión</h1>
 
 <form action="/login" method="POST">
   <div class="mb-3">
@@ -14,6 +15,7 @@
     <input type="password" class="form-control {{#if errorsMessage}}is-invalid{{/if}}" id="password" name="password"
       required>
   </div>
-  <button type="submit" class="btn btn-primary">Inica sesión</button>
+  <button type="submit" class="btn btn-primary">Inicia sesión</button>
   <a href="/login/google" class="btn btn-outline-primary">Iniciar sesión con Google</a>
 </form>
+</div>
