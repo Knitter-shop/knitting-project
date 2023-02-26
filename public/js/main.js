@@ -44,6 +44,14 @@ window.onload = () => {
             iconNode.classList.remove('bi-bookmark-fill');
           }
         })
+        .then(()=> {
+          const currentLocation = window.location.href
+          const urlSplitted = currentLocation.split('/')
+          if(urlSplitted[urlSplitted.length-1].includes('profile')) {
+            window.location='/profile'
+          }
+          
+        })
         .catch((err) => {
           console.error(err)
         })
