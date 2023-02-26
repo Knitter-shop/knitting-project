@@ -1,63 +1,69 @@
-<div class="card" >
+<div class="card">
   <div>
     <a class="product-name" href="/products/{{product.id}}/detail">
       <img src="{{ product.image }}" class="card-img-top" style="height: 300px" alt="{{ product.productName }}">
       <h4 style="color: rgb(109 101 101); margin-top:16px"> {{product.productName}}</h4>
     </a>
-    </a>
   </div>
-  <div class="card-container">
-    <div class="d-flex align-items-center justify-content-center">
-      <p class="card-text" style="margin-top: 15px;"><i class="bi bi-bag"></i> {{ product.productPrice }} €</p>
 
-      {{#if currentUser}}
-      <button class="like-btn btn text-primary" type="button" value="{{product.id}}">
-        <span>{{product.likes.length}}</span>
-        {{#hasLike currentUser=currentUser product=product}}
-        <i class="bi bi-heart-fill"></i>
-        {{else}}
-        <i class="bi bi-heart"></i>
-        {{/hasLike}}
-      </button>
-      {{else}}
-      <button class="like-btn btn text-primary" type="button">
-        <span>{{product.likes.length}}</span><i class="bi bi-heart"></i></button>
-      {{/if}}
+  <div class="card-edit">
    
-   {{#if currentUser}}
-    <button class="save-btn btn text-primary" type="button" value="{{product.id}}">
-
-      {{#hasSave currentUser=currentUser product=product}}
-      <i class="bi bi-bookmark-fill"></i>
-      {{else}}
-      <i class="bi bi-bookmark"></i>
-      {{/hasSave}}
-    </button>
-    {{else}}
-    <button class="save-btn btn text-primary" type="button">
-      <i class="bi bi-bookmark"></i></button>
-    {{/if}}
-
-
     {{#isOwner currentUser=currentUser product=product}}
     <button class="edit-btn btn text-primary"><a href="/product/{{product.id}}/edit">
-        <i class="bi bi-pencil-square"></i></a>
+        <i class="bi bi-pencil-square" style="font-size: 20px; color:rgb(109 101 101)"></i></a>
     </button>
-
 
     <form class="m-0" action="/products/{{product.id}}/delete" method="POST">
       <button class="btn text-danger delete-btn" type="submit">
-        <i class="bi bi-trash3-fill"></i>
+        <i class="bi bi-trash3-fill" style="font-size: 20px;"></i>
       </button>
     </form>
 
     {{/isOwner}}
-   
-   
+  
+  </div>
+
+  <div class="card-container">
+    <div class="d-flex align-items-center justify-content-center">
+      <p class="card-text" style="margin-top: 15px; font-size: 20px; color:rgb(109 101 101)"><i class="bi bi-bag"></i> {{ product.productPrice }} €</p>
+
+      {{#if currentUser}}
+      <button class="like-btn btn text-primary" type="button" value="{{product.id}}">
+        <span style="font-size: 20px; color:rgb(109 101 101)">{{product.likes.length}}</span>
+        {{#hasLike currentUser=currentUser product=product}}
+        <i class="bi bi-heart-fill" style="font-size: 20px; color:rgb(109 101 101)"></i>
+        {{else}}
+        <i class="bi bi-heart" style="font-size: 20px; color:rgb(109 101 101)"></i>
+        {{/hasLike}}
+      </button>
+      {{else}}
+      <button class="like-btn btn text-primary" type="button">
+        <span style="font-size: 20px; color:rgb(109 101 101)">{{product.likes.length}}</span><i class="bi bi-heart" style="font-size: 20px; color:rgb(109 101 101)"></i></button>
+      {{/if}}
+
+    {{#if currentUser}}
+    <button class="save-btn btn text-primary" type="button" value="{{product.id}}">
+
+      {{#hasSave currentUser=currentUser product=product}}
+      <i class="bi bi-bookmark-fill" style="font-size: 20px; color:rgb(109 101 101)"></i>
+      {{else}}
+      <i class="bi bi-bookmark" style="font-size: 20px; color:rgb(109 101 101)"></i>
+      {{/hasSave}}
+    </button>
+    {{else}}
+    <button class="save-btn btn text-primary" type="button">
+      <i class="bi bi-bookmark" style="font-size: 20px; color:rgb(109 101 101)"></i></button>
+    {{/if}}
+
+
+
+
+
+
     </div>
 
 
-    
+
   </div>
 
 </div>
