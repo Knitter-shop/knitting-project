@@ -1,35 +1,41 @@
-<div style="display:flex; margin-top:50px">
+<div class="content-detail">
     <div class="description">
-        <h1>{{product.productName}}</h1>
-        <p>{{product.description}}</p>
+        <div>
+        <h1 >{{product.productName}}</h1>
+        <p style="margin-top: 40px; font-size: 24px">{{product.description}}</p>
+        </div>
         {{#if product.productPrice}}
-        <h3 class="text-primary">Comprar {{product.productName}}</h3>
+        <div style="display: flex; justify-content:space-between">
+        <h3>Comprar {{product.productName}}</h3>
         <form method="POST" action="/products/{{product.id}}/purchase-confirmation">
             {{!-- <input type="hidden" name="price" value="{{product.productPrice}}" /> --}}
             <input type="hidden" name="typeBuy" value="product" />
-            <button type="submit" class="btn btn-primary"> {{product.productPrice}} € </button>
+            <button class="btn-purchase" type="submit"> {{product.productPrice}} € </button>
         </form>        
-
+        </div>
         {{else if product.patternPrice}}
+        <div style="display: flex; justify-content:space-between">
         <h3 class="text-primary">Comprar el patrón</h3>
         <form method="POST" action="/products/{{product.id}}/purchase-confirmation">
             {{!-- <input type="hidden" name="price" value="{{product.patternPrice}}" /> --}}
             <input type="hidden" name="typeBuy" value="pattern" />
-            <button type="submit" class="btn btn-primary"> {{product.patternPrice}} € </button>
+            <button class="btn-purchase" type="submit"> {{product.patternPrice}} € </button>
         </form> 
-
+    </div>
         {{else if product.kitPrice}}
+        <div style="display: flex; justify-content:space-between">
         <h3 class="text-primary">¿Quieres el kit con el patrón + material para hacerlo? </h3>
         <form method="POST" action="/products/{{product.id}}/purchase-confirmation">
             {{!-- <input type="hidden" name="price" value="{{product.kitPrice}}" /> --}}
             <input type="hidden" name="typeBuy" value="kit" />
-            <button type="submit" class="btn btn-primary"> {{product.kitPrice}} € </button>
+            <button class="btn-purchase" type="submit"> {{product.kitPrice}} € </button>
         </form>        
-
+        </div>
         {{else}}
+        <div style="display: flex; justify-content:space-between">
         <img src="/img/sad-wool.png" height="48"/>    
         <p>Lo sentimos, no puedes comprar este artículo</p>
-
+        </div>
         {{/if}}
 
 

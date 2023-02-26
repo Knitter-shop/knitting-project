@@ -1,4 +1,5 @@
-<h1> {{currentUser.userName}} edita tu perfil</h1>
+<div style="padding:32px">
+<h1 style="margin-bottom: 32px;"> {{currentUser.firstName}} edita tu perfil</h1>
 
 <form action="/profile/{{currentUser.id}}/edit" method="POST">
   <div class="mb-3">
@@ -30,8 +31,8 @@
     <label for="telephone" class="form-label">Teléfono</label>
     <input value="{{currentUser.telephone}}" type="number" class="form-control" id="telephone" name="telephone">
   </div>
-
-  <div class="mb-3">
+<div style="display: flex; justify-content: space-between;">
+  <div style="width: 80%" class="mb-3">
     <label for="address" class="form-label">Dirección</label>
     <input value="{{currentUser.location.address}}" type="text" class="form-control" id="address"
       name="location.address">
@@ -42,8 +43,9 @@
     <input value="{{currentUser.location.number}}" type="number" class="form-control" id="number"
       name="location.number">
   </div>
-
-  <div class="mb-3">
+</div>
+<div style="display: flex; justify-content: space-between;">
+  <div style="width:60%" class="mb-3">
     <label for="city" class="form-label">Ciudad</label>
     <input value="{{currentUser.location.city}}" type="text" class="form-control" id="city" name="location.city">
   </div>
@@ -58,6 +60,7 @@
     <input value="{{currentUser.location.country}}" type="text" class="form-control" id="country"
       name="location.country">
   </div>
+</div>
 
   <div class="mb-3">
     <label for="email" class="form-label">Email</label>
@@ -69,6 +72,7 @@
   </div>
 
 
-  <button type="submit" class="btn btn-primary">Edita tu perfil</button>
+  <button type="submit" class="btn-purchase">Edita tu perfil</button>
 
 </form>
+</div>

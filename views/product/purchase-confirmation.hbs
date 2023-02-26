@@ -1,5 +1,5 @@
-<div style="display:flex; margin-top:50px">
-    <div class="description">
+<div style="display:flex; flex-direction: column; margin-top:50px">
+    <div class="description" style="margin: 0 auto 40px; border: 1px solid #b5a26f;">
         <h1>Confirma la dirección de envío</h1>
 
 <form action="/products/{{purchase.id}}/purchase-confirmed" method="POST">
@@ -30,7 +30,7 @@
     <input value="{{currentUser.location.country}}" type="text" class="form-control" id="country"
       name="country">
   </div>
-  <button type="submit" class="btn btn-primary">Confirma la compra</button>
+  <button class="btn-purchase" type="submit">Confirma la compra</button>
 
 </form>
 </div>

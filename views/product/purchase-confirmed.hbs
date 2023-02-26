@@ -1,7 +1,10 @@
 <div style="display:flex; margin-top:50px">
     <div class="description">
-        <h1> ¡Muchas gracias, {{currentUser.firstName}}!</h1>
-        <h2> Has comprado {{purchase.product.productName}}</h2>
+       <div>
+         <h1> ¡Muchas gracias, {{currentUser.firstName}}!</h1>
+        <h2 style="margin-top: 24px;"> Has comprado {{purchase.product.productName}}</h2>
+        </div>
+        <div>
         <p>En breve lo recibirás en el domicilio que has indicado:</p>
           <ul>
             <li> Calle: {{purchase.location.address}}, {{purchase.location.number}}</li>
@@ -9,6 +12,7 @@
             <li> {{purchase.location.country}}</li>
           </ul>
         <p>Si no recibes el pedido en 15 días, por favor ponte en contacto con nosotros o escríbenos a <a href="mailto:knitter.ironhack@gmail.com">knitter.ironhack@gmail.com</a>.</p>      
+      </div>    
     </div>
     <div class="description">
         <img src="{{purchase.product.image}}" alt="{{purchase.product.productName}}">

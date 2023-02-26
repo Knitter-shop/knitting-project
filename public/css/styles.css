@@ -2,23 +2,27 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    margin-bottom: 500px;
+    padding: 50px;
+
 }
 .content2 {
     width: 100%;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    margin-top: 30px;
+  
 }
 
 
 .container-products {
-    margin-top: 30px;
+    margin-top: 32px;
     width: 100%;
     display: grid;
     grid-template-columns: repeat(4, 2fr);
     grid-gap: 50px;
     grid-auto-rows: minmax(100px, auto);
+    margin-bottom: 32px;
    
 }
 
@@ -46,11 +50,24 @@
     border-top-right-radius: 20px;
     object-fit: cover;
     object-position: center;
+    filter: opacity(0.7);
+    transition: filter .5s;
+    
   }
-  
+
+  .card-img-top:hover {
+    filter: none;
+  }
 
 .description {
     width: 50%;
+    margin: 20px;
+    background-color: white;
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    border-radius: 20px;
 }
 
 .description img {
@@ -73,14 +90,22 @@ margin-bottom: 0px;
 
 .navigator li {
     margin: 20px;
+    margin-left: 70px;
+    margin-right: 50px;
+    display: flex;
 }
 
 
-.navigator a {
+.nav-link {
     color: white;
     text-decoration: none;
-    font-size: 24px;
+    font-size: 20px;
     margin-right: 20px;
+}
+
+.nav-link:hover {
+    background-color: #b5a26f;
+    color: white;
 }
 
 .landing {
@@ -103,6 +128,7 @@ margin-bottom: 0px;
     text-decoration: none;
     padding: 10px;
     font-size: 18px;
+    
 }
 
 .landing h1 {
@@ -135,6 +161,7 @@ margin-bottom: 0px;
     background-image: url("../img/Pic2.jpeg");
     background-repeat: no-repeat;
     background-size: cover;
+    
 }
 
 .landing2 a {
@@ -142,16 +169,130 @@ margin-bottom: 0px;
     color: white;
     font-size: 70px;
     margin-left: 100px;
- 
+    position: absolute;
+    margin-top: 300px;
 }
 
 .card-log {
     width: 60%;
     margin: 0 auto;
-    border: 4px solid #b5a26f;
-    margin-top: 30px;
+    border: 1px solid #b5a26f;
+    margin-top: 100px;
     border-radius: 20px;
-    /* box-shadow: 5px 5px 2px 2px #044858; */
-    padding: 20px
+    padding: 68px;
+    margin-bottom: 100px;
+   background-color: white;
 }
 
+.card-log h1 {
+    color: rgb(109 101 101); 
+    text-align: center; 
+    margin-bottom: 20px
+}
+
+.card-log h4 {
+    text-align: center; 
+    margin-bottom: 20px
+}
+
+body {
+    background-color: #fdfcf9;
+}
+
+.footer {
+    background-color: darkgray;
+    align-items:  center;
+    display: flex;
+    flex-direction: column;
+}
+.footer-utilities {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    padding-left: 100px;
+    padding-right: 100px;
+    border-bottom: 1px solid black;
+}
+.footer ul {
+list-style-type: none;
+padding: 0;
+display: flex;
+justify-content: space-between;
+flex-wrap: nowrap;
+margin-bottom: 0px;
+}
+
+.footer li {
+    margin: 30px;
+    font-size: 18px;
+}
+
+.footer-icons {
+    margin: 32px;
+    justify-content: space-between;
+}
+
+.footer-icons i {
+    font-size: 32px;
+    margin: 16;
+}
+
+.card-log button {
+    color: #fff;
+    background-color: #b5a26f;
+    vertical-align: middle;
+    border: 1px solid transparent;
+    padding: 0.375rem 0.75rem;
+    font-size: 20px;
+    border-radius: 0.25rem;
+    transition: background-color .5s;
+    margin-top: 50px;
+}
+
+.google-log {
+    background-color: #b5a26f;
+    color: white;
+    vertical-align: middle;
+    border: 1px solid transparent;
+    padding: 7px 10px;
+    font-size: 20px;
+    border-radius: 0.25rem;
+    text-decoration: none;
+    transition: background-color .5s;
+    display: inline-block;
+    margin-top: 50px;
+}
+
+.google-log:hover {
+    background-color: rgb(109 101 101);
+    color:white
+}
+
+button:hover {
+    background-color: rgb(109 101 101);
+    color:white
+}
+
+.form-label {
+    font-size: 24px;
+    margin-bottom: 0;
+}
+
+.content-detail {
+    display: flex;
+    padding: 40px;
+}
+
+.btn-purchase{
+        color: #fff;
+        background-color: #b5a26f;
+        border: 1px solid transparent;
+        padding: 8px 30px;
+        font-size: 20px;
+        border-radius: 0.25rem;
+        transition: background-color .5s;
+}
+
+span {
+    font-size: 20px;
+}
