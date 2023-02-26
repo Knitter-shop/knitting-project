@@ -1,12 +1,13 @@
-{{#isOwner currentUser=currentUser product=product}}
-<h1 class="text-primary">Edita el proyecto</h1>
-<p>Agrega nuevas opciones de compra, actualiza la descripción o cambia la imagen para mantener tu proyecto siempre listo
+<div class="card-log">
+  {{#isOwner currentUser=currentUser product=product}}
+<h1>Edita el proyecto</h1>
+<h4>Agrega nuevas opciones de compra, actualiza la descripción o cambia la imagen para mantener tu proyecto siempre listo
   para los clientes. Simplemente completa el formulario y actualiza lo que necesites. ¡Mantén actualizado tu proyecto de
-  Knitting!</p>
+  Knitting!</h4>
 <form action="/product/{{product.id}}/edit" enctype="multipart/form-data" method="POST">
   {{else}}
-  <h1 class="text-primary">Crea tu proyecto</h1>
-  <h3 class="">¡Crea tu proyecto, vende el patrón, el...!</h3>
+  <h1>Crea tu proyecto</h1>
+  <h4>¡Crea tu proyecto, vende el patrón...!</h4>
   <form action="/products/new-product" enctype="multipart/form-data" method="POST">
     {{/isOwner}}
     <div class="mb-3">
@@ -102,6 +103,6 @@
     <button type="submit" class="btn btn-primary">{{#isOwner currentUser=currentUser product=product}}Actualiza tu
       proyecto{{else}}Crea tu proyecto{{/isOwner}}</button>
   </form>
-
+</div>
 
   <script src="/js/product.form.js"></script>

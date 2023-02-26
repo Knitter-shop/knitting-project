@@ -1,18 +1,18 @@
 <nav class="navigator">
   <ul>
     <li>
-      <a href="/products"> Productos</a>
+      <a class="nav-link" href="/products"> Productos</a>
     </li>
     <li>
-      <a href="/">The Knitter-Shop</a>
+      <a class="nav-link" style="font-size: 24px" href="/">The Knitter-Shop</a>
     </li>
     <li>
        {{#if currentUser}}
-          <a href="/logout">Log out</a>
-          <a href="/profile">{{currentUser.firstName}}</a>
+          <a class="nav-link" href="/logout">Log out</a>
+          <a class="nav-link" href="/profile">{{currentUser.firstName}}</a>
           {{else}}
-          <a href="/signup">Sign up</a>
-          <a href="/login">Log in</a>
+          <a class="nav-link" href="/signup">Sign up</a>
+          <a class="nav-link" href="/login">Log in</a>
         {{/if}}
     </li>
   </ul>
