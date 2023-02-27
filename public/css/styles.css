@@ -38,7 +38,9 @@
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     grid-gap: 10px;
-    height: 860px;
+    padding-left: 10px;
+    padding-right: 10px;
+    min-height: 860px;
     overflow-y: scroll;
 }
 
@@ -391,24 +393,29 @@ span {
     }
   
     .footer-utilities {
-      padding-left: 20px;
-      padding-right: 20px;
+    padding-left: 10px;
+    padding-right: 10px;
     }
-  
+    .footer ul {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    }
     .footer li {
-      font-size: 16px;
-      margin: 10px;
+    margin: 10px;
+    font-size: 16px;
     }
-  
+    .footer-icons {
+    margin: 20px;
+    justify-content: center;
+    }
     .footer-icons i {
-      font-size: 24px;
-      margin: 8px;
+    font-size: 28px;
+    margin: 8px;
     }
-  
-    .card-log button {
-      font-size: 16px;
     }
-  }
   
 
   @media only screen and (min-width: 601px) and (max-width: 1024px) {
@@ -460,16 +467,29 @@ span {
       margin-bottom: 20px;
     }
   
+    .footer-utilities {
+    padding-left: 10px;
+    padding-right: 10px;
+    }
+    .footer ul {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    }
     .footer li {
-      font-size: 20px;
-      margin: 20px;
+    margin: 10px;
+    font-size: 16px;
     }
-  
+    .footer-icons {
+    margin: 20px;
+    justify-content: center;
+    }
     .footer-icons i {
-      font-size: 28px;
-      margin: 16px;
+    font-size: 28px;
+    margin: 8px;
     }
-  
     .card-log button {
       font-size: 20px;
     }
