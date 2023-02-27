@@ -38,9 +38,7 @@
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     grid-gap: 10px;
-    padding-left: 10px;
-    padding-right: 10px;
-    min-height: 860px;
+    padding: 10px;
     overflow-y: scroll;
 }
 
@@ -320,6 +318,11 @@ span {
       margin-top: 20px;
       margin-bottom: 20px;
     }
+
+    .content-detail {
+      display: block;
+      padding: 20px;  
+  }
   
     .description {
       width: 100%;
