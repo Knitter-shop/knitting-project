@@ -469,6 +469,11 @@ span {
       font-size: 24px;
       margin-bottom: 20px;
     }
+
+    .content-detail {
+      display: block;
+      padding: 20px;  
+  }
   
     .footer-utilities {
     padding-left: 10px;
