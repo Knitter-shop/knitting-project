@@ -303,3 +303,174 @@ button:hover {
 span {
     font-size: 20px;
 }
+
+@media only screen and (max-width: 600px) {
+
+    .content {
+      margin-bottom: 100px;
+      padding: 20px;
+    }
+  
+    .container-products, .container-profile {
+      grid-template-columns: repeat(1, 1fr);
+      grid-gap: 20px;
+      grid-auto-rows: minmax(200px, auto);
+      margin-top: 20px;
+      margin-bottom: 20px;
+    }
+  
+    .description {
+      width: 100%;
+      margin: 10px;
+      padding: 20px;
+    }
+  
+    .navigator {
+        background-color: darkgray;
+      }
+    
+      .navigator ul {
+        list-style-type: none;
+        display: flex;
+        flex-direction: column;
+        margin-bottom: 0px;
+      }
+    
+      .navigator li {
+        display: block;
+      }
+    
+      .nav-link {
+        color: rgb(109 101 101);
+        text-decoration: none;
+        font-size: 16px;
+        margin-bottom: 10px;
+        margin-right: 0px;
+      }
+    
+      .nav-link:hover {
+        color: white;
+      }
+  
+    .landing div {
+      margin-top: 200px;
+      margin-left: 20px;
+      width: 280px;
+    }
+  
+    .landing h1 {
+      font-size: 50px;
+    }
+  
+    .landing p {
+      font-size: 16px;
+    }
+  
+    .landing2 a {
+      font-size: 50px;
+      margin-left: 20px;
+      margin-top: 200px;
+    }
+  
+    .card-log {
+      width: 90%;
+      margin-top: 50px;
+      border-radius: 10px;
+      padding: 20px;
+      margin-bottom: 50px;
+    }
+  
+    .card-log h1 {
+      font-size: 30px;
+      margin-bottom: 10px;
+    }
+  
+    .card-log h4 {
+      font-size: 18px;
+      margin-bottom: 10px;
+    }
+  
+    .footer-utilities {
+      padding-left: 20px;
+      padding-right: 20px;
+    }
+  
+    .footer li {
+      font-size: 16px;
+      margin: 10px;
+    }
+  
+    .footer-icons i {
+      font-size: 24px;
+      margin: 8px;
+    }
+  
+    .card-log button {
+      font-size: 16px;
+    }
+  }
+  
+
+  @media only screen and (min-width: 601px) and (max-width: 1024px) {
+  
+    .container-products {
+      grid-template-columns: repeat(2, 1fr);
+      grid-gap: 30px;
+      grid-auto-rows: minmax(250px, auto);
+    }
+  
+    .description {
+      width: 80%;
+    }
+  
+    .landing div {
+      margin-top: 250px;
+      margin-left: 70px;
+      width: 470px;
+    }
+  
+    .landing h1 {
+      font-size: 60px;
+    }
+  
+    .landing p {
+      font-size: 18px;
+    }
+  
+    .landing2 a {
+      font-size: 60px;
+      margin-left: 70px;
+      margin-top: 250px;
+    }
+  
+    .card-log {
+      width: 70%;
+      margin-top: 70px;
+      padding: 50px;
+      margin-bottom: 70px;
+    }
+  
+    .card-log h1 {
+      font-size: 40px;
+      margin-bottom: 20px;
+    }
+  
+    .card-log h4 {
+      font-size: 24px;
+      margin-bottom: 20px;
+    }
+  
+    .footer li {
+      font-size: 20px;
+      margin: 20px;
+    }
+  
+    .footer-icons i {
+      font-size: 28px;
+      margin: 16px;
+    }
+  
+    .card-log button {
+      font-size: 20px;
+    }
+  }
