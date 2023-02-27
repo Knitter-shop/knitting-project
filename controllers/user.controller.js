@@ -16,10 +16,25 @@ module.exports.products = (req, res, next) => {
     .populate("saves")
     .populate("purchase")
     .then((products) => {
-      res.render("product/all-products", { products });
+      const shuffledProducts = shuffle(products);
+      res.render("product/all-products", { products: shuffledProducts });
     })
     .catch((err) => next(err));
 };
+
+function shuffle(array) {
+  let currentIndex = array.length;
+  let temporaryValue, randomIndex;
+
+  while (currentIndex !== 0) {
+    randomIndex = Math.floor(Math.random() * currentIndex);
+    currentIndex--;
+    temporaryValue = array[currentIndex];
+    array[currentIndex] = array[randomIndex];
+    array[randomIndex] = temporaryValue;
+  }
+  return array;
+}
 
 module.exports.like = (req, res, next) => {
   const user = req.user.id;
