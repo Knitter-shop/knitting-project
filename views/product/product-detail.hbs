@@ -13,28 +13,31 @@
             <button class="btn-purchase" type="submit"> {{product.productPrice}} € </button>
         </form>        
         </div>
-        {{else if product.patternPrice}}
+        {{else}}
         <div style="display: flex; justify-content:space-between">
-        <h3 class="text-primary">Comprar el patrón</h3>
+        <img src="/img/sad-wool.png" height="48"/>    
+        <p>Lo sentimos, este artículo no está actualmente en venta.</p>
+        </div>
+        {{/if}}
+        {{#if product.patternPrice}}
+        <div style="display: flex; justify-content:space-between">
+        <h3>Comprar el patrón</h3>
         <form method="POST" action="/products/{{product.id}}/purchase-confirmation">
             {{!-- <input type="hidden" name="price" value="{{product.patternPrice}}" /> --}}
             <input type="hidden" name="typeBuy" value="pattern" />
             <button class="btn-purchase" type="submit"> {{product.patternPrice}} € </button>
         </form> 
-    </div>
-        {{else if product.kitPrice}}
+        </div>
+        {{/if}}
+
+        {{#if product.kitPrice}}
         <div style="display: flex; justify-content:space-between">
-        <h3 class="text-primary">¿Quieres el kit con el patrón + material para hacerlo? </h3>
+        <h3>¿Quieres el kit con el patrón + material para hacerlo? </h3>
         <form method="POST" action="/products/{{product.id}}/purchase-confirmation">
             {{!-- <input type="hidden" name="price" value="{{product.kitPrice}}" /> --}}
             <input type="hidden" name="typeBuy" value="kit" />
             <button class="btn-purchase" type="submit"> {{product.kitPrice}} € </button>
         </form>        
-        </div>
-        {{else}}
-        <div style="display: flex; justify-content:space-between">
-        <img src="/img/sad-wool.png" height="48"/>    
-        <p>Lo sentimos, no puedes comprar este artículo</p>
         </div>
         {{/if}}
 
