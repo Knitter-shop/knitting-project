@@ -1,14 +1,17 @@
 <div class="footer">
     <div class="footer-utilities">
         <ul>
-            <li>Mobile app</li>
-            <li>Comunity</li>
-            <li>Company</li>
+            {{#if currentUser}}
+            <li><a class="nav-link" href="/profile"><span>Tus productos</span></a></li>
+            <li><a class="nav-link" href="/products/new-product"><span>Añadir artículo</span></a></li>
         </ul>
         <ul>
-            <li>Help</li>
-            <li>Blog</li>
-            <li>Resources</li>
+            <li><a class="nav-link" href="/profile/{{currentUser.id}}/edit"><span>Editar perfil</span></a></li>
+            <li><a class="nav-link" href="/logout"><span>Cerrar sesión</span></a></li>
+            {{else}}
+          <li><a class="nav-link" href="/signup">Sign up</a></li>
+          <li><a class="nav-link" href="/login">Log in</a></li>
+        {{/if}}
         </ul>
     </div>
     
