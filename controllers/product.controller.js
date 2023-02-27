@@ -15,7 +15,7 @@ module.exports.doCreate = (req, res, next) => {
 
   Product.create(newProduct)
     .then((product) => {
-      res.redirect("/products");
+      res.redirect("/profile");
     })
     .catch((err) => {
       if (mongoose.Error.ValidationError) {
